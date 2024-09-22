@@ -62,7 +62,7 @@ const intro = () => {
     ];
 
     const props = useSpring({
-        transform: `translateY(${index * -prevHeight - 3}px)`,
+        transform: `translateY(${index * -prevHeight - 4}px)`,
         config: { tension: 300, friction: 30 },
     });
 
@@ -72,17 +72,17 @@ const intro = () => {
 
     return (
         <>
-            <div className="mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 max-w-[1140px] md:max-w-[960px] sm:max-w-[720px] xs:max-w-[540px]">
-                <div className="flex flex-col gap-10 lg:flex-row lg:items-center pb-20 flex-col-reverse">
+            <div className="mx-auto px-4 sm:px-6 md:max-w-7xl md:px-8 max-w-[1140px] sm:max-w-[720px] xs:max-w-[540px]">
+                <div className="flex flex-col gap-10 md:flex-row md:items-center pb-20 flex-col-reverse">
 
-                    <div className="lg:w-1/2" data-aos="fade-right">
+                    <div className="md:w-1/2" data-aos="fade-right">
                         <div>
                             <Image src={kiri} alt='kiri' className='rounded-[100%] hidden md:block'></Image>
                         </div>
                     </div>
 
-                    <div className="lg:w-1/2">
-                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white" data-aos="fade-left">
+                    <div className="md:w-1/2">
+                        <h1 className="text-4xl md:text-6xl xl:text-6xl font-bold text-white" data-aos="fade-left">
                             <div className='text-2xl mb-4 opacity-40'>Hey, I am</div>
                             <div className="overflow-hidden relative duration-150 transition-[height]"
                                 style={{ height: `${height}px` }}>
@@ -98,7 +98,7 @@ const intro = () => {
                                 </animated.div>
                             </div>
 
-                            <span className={`inline-block leading-tight md:text-4xl text-3xl text-[#17F29A]  bg-no-repeat bg-bottom bg-contain`}>
+                            <span className={`inline-block leading-tight md:text-4xl text-3xl text-green  bg-no-repeat bg-bottom bg-contain`}>
                                 <span><h1></h1></span>
                                 <Typewriter
                                     options={{
@@ -115,14 +115,14 @@ const intro = () => {
 
                         <div data-aos="fade-left">
                             <div className="btn mt-8">
-                                <Link href={"/#projects"} className='px-6 py-3 text-xl hover:bg-[#14c980]  duration-200 bg-[#17F29A] text-[var(--background)] font-extrabold rounded-xl'>
+                                <Link href={"/#projects"} className='px-6 py-3 text-xl hover:bg-green  duration-200 bg-green text-[var(--background)] font-extrabold rounded-xl'>
                                     Projects
                                 </Link>
                             </div>
 
                             <div className="mt-8">
                                 <p className="text-base text-interface-200">
-                                    Over <span className="font-bold text-[#17F29A] text-">2+ years</span> work experience
+                                    Over <span className="font-bold text-green text-">2+ years</span> work experience
                                 </p>
                             </div>
                         </div>

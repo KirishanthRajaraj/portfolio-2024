@@ -11,6 +11,10 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        green: "#17F29A"
+      },
+      transitionDuration: {
+        '300': '300ms',
       },
     },
   },
