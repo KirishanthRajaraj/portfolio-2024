@@ -77,7 +77,7 @@ const intro = () => {
 
                     <div className="md:w-1/2" data-aos="fade-right">
                         <div>
-                            <Image src={kiri} alt='kiri' className='rounded-[100%] hidden md:block'></Image>
+                            <Image src={kiri} alt='Kiri' className='rounded-[100%] hidden md:block shadow-slate-600'></Image>
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@ const intro = () => {
 
                         <div data-aos="fade-left">
                             <div className="btn mt-8">
-                                <Link href={"/#projects"} className='px-6 py-3 text-xl hover:bg-green  duration-200 bg-green text-[var(--background)] font-extrabold rounded-xl'>
+                                <Link href={"/#projects"} className='px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-background border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                     Projects
                                 </Link>
                             </div>

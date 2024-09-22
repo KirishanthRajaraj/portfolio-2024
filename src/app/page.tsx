@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Intro from "./components/intro";
 import Timeline from "./components/timeline";
+import Projects from "./components/projects";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <main className="pt-20">
         <Intro></Intro>
         <Timeline></Timeline>
+        <Projects></Projects>
       </main>
     </div>
   );

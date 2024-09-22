@@ -9,6 +9,7 @@ import { CallTracker } from 'assert';
 const milestones: Milestone[] = [
     { title: "Chili Digital AG", date: "2022 - current", subtitle: "My current dayjob in the middle of Zurich", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/chili.svg', logoAlt: 'swissarmedforces' },
     { title: "Swiss Armed Forces", date: "2024 Jan. - May", subtitle: "Recruit School, as a Richtstrahl Pionier next to Zurich International Airport", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
+    { title: "Language stay Eastbourne, England", date: "2019 - 2023", subtitle: "My formal education in IT Application Development, economics & law", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
     { title: "IMS Aarau\u00AD/\u00ADBaden", date: "2019 - 2023", subtitle: "My formal education in IT Application Development, economics & law", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
 ]
 
@@ -21,7 +22,7 @@ const timeline = () => {
 
     return (
         <div className="container mx-auto p-[25px] relative">
-            <h2 className="text-4xl font-bold mb-20 text-center">Timeline</h2>
+            <h2 className="text-5xl font-bold mb-20 before:content-[''] before:absolute before:border-b-[18px] before:border-b-[#233047] before:w-[14rem] before:left-[3.5rem] before:top-[3.6rem] before:-z-10">Timeline</h2>
             <div className="relative flex lg:block h-full gap-6 lg:gap-16 lg:gap-0">
 
                 <div className="line__wrapper flex-1 h-full w-[10%] lg:w-auto">
