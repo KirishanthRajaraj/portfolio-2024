@@ -26,6 +26,12 @@ body {
   }
 }
 
+@layer base {
+  .blog-post .content p {
+    @apply mt-4 mb-4;
+  }
+}
+
 .animate-ping {
   animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
