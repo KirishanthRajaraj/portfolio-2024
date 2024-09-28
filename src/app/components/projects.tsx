@@ -18,7 +18,9 @@ const projects = () => {
 
                 <div className="flex gap-10 md:gap-16 flex-col lg:flex-row">
                     <div className='img__wrapper w-full lg:w-[70%] xl:w-[70%]'>
-                        <Image src="/static/blitztypes_showcase.png" className='rounded-3xl shadow-black shadow-lg' width={500} height={500} layout='responsive' alt='BlitzTypes Showcase'></Image>
+                        <Link href={"https://blitz-types.vercel.app/"} target='_blank' className=''>
+                            <Image src="/static/blitztypes_showcase.png" className='rounded-3xl shadow-black shadow-lg  transition-transform duration-500 ease-in-out transform hover:scale-105' width={500} height={500} layout='responsive' alt='BlitzTypes Showcase'></Image>
+                        </Link>
                     </div>
 
                     <div className="content w-full xl:w-[40%] lg:w-[40%]">
@@ -26,18 +28,18 @@ const projects = () => {
                             BlitzTypes
                         </h3>
                         <div className="lead md:text-xl font-semibold ">
-                            A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard. Built with React, Next.js, .NET Web API, MS SQL Server DB, Azure App Service, Tailwind.
+                            A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard. Built with React, Next.js, .NET Web API, MS SQL Server DB, Tailwind, Azure App Service and Vercel for deployment.
                         </div>
 
                         <div className="flex items-center flex-wrap gap-4">
                             <div className="btn mt-8">
-                                <Link href={"/https://blitz-types.vercel.app/"} className='flex items-center px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                <Link href={"https://blitz-types.vercel.app/"} target='_blank' className='flex items-center px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                     <SquareArrowOutUpRight />
                                 </Link>
                             </div>
 
                             <div className="btn mt-8">
-                                <Link href={"/blog"} className='px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                <Link href={"/BlitzTypes"} className='px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                     Learn more
                                 </Link>
                             </div>

@@ -8,10 +8,10 @@ const Blitztypes = () => {
                 <div className="container max-w-screen-lg mx-auto md:p-12 py-12 p-[20px]">
                     <article className="row justify-center">
                         <div className="md:col-10 text-center">
-                            <h1 className="h2 text-4xl font-bold">BlitzTypes</h1>
+                            <h1 className="h2 text-4xl font-bold">Ristl Pi Vm</h1>
                             <ul className="mt-4 flex flex-wrap items-center justify-center text-text">
-                                <li className="mx-3"> <a href="/authors/john-doe" className="flex items-center hover:text-primary font-medium">
-                                    <Image src="/images/authors/john-doe.jpg" alt="John Doe" className="mr-2 h-6 w-6 rounded-full" width="50" height="50" loading="lazy" decoding="async" /> <span>John Doe</span> </a> </li>
+                                <li className="mx-3"> <a href="/authors/john-doe" className="flex items-center hover:text-primary font-medium"> 
+                                <Image src="/images/authors/john-doe.jpg" alt="John Doe" className="mr-2 h-6 w-6 rounded-full" width="50" height="50" loading="lazy" decoding="async" /> <span>John Doe</span> </a> </li>
                                 <li className="mx-3 flex items-center flex-wrap font-medium">
                                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="mr-1 h-5 w-5 text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M19 4h-3V2h-2v2h-4V2H8v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zM5 20V7h14V6l.002 14H5z"></path>
@@ -24,48 +24,25 @@ const Blitztypes = () => {
                                         <path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11 4h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6h-4v-4h4v4zM17 3c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2zM7 13c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path>
                                     </svg>
                                     <ul>
-                                        <li className="inline-block"> Development </li>
+                                        <li className="inline-block"> Service </li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-12 max-w-full mt-8 mb-2 flex gap-3 md:gap-5 relative">
-                            <Image className='rounded-3xl object-cover object-[50%_55%] shadow-black shadow-lg' src="/static/blitztypes_showcase_eval.png" layout='responsive' width={5000} height={3000} alt="Military Service Kiri" />
-                            {/*                             <Image className='rounded-3xl !w-[50%] object-cover object-[80%_55%]' src="/static/kiri_military.jpeg" layout='responsive' width={5000} height={3000} alt="Military Service Kiri"/>
+                        <div className="col-12 max-w-full mt-8 mb-2 flex gap-3 md:gap-5 relative"> 
+                            <Image className='rounded-3xl aspect-[4/3] md:aspect-[16/10] object-cover object-[50%_55%]' src="/static/kiri_military02.jpeg" layout='responsive' width={5000} height={3000} alt="Military Service Kiri"/>
+{/*                             <Image className='rounded-3xl !w-[50%] object-cover object-[80%_55%]' src="/static/kiri_military.jpeg" layout='responsive' width={5000} height={3000} alt="Military Service Kiri"/>
  */}                        </div>
                         <div className="md:max-w-screen-md mx-auto">
                             <div className="content my-6 md:my-10 text-left">
-                                <h2 className='text-3xl font-bold mb-4'>Authentication</h2>
-                                <p>
-                                    For Blitztypes i wanted to have the full, secure, professional authentication experience. So i decided to use JWT Token based authentication,
-                                    which is the golden standard of authentication in Web development. ASP.NET Identity made this process even simpler for me, providing secure authentication methods, hashed password storage etc.
-                                </p>
-                                <p>Here's how it works:</p>
-                                <Image className='rounded-xl mb-4' src="/static/jwt_auth.png" alt='Jwt Authentication' layout='responsive' width={500} height={300}></Image>
-                                <p>                 
-                                    The basic idea is the client (the user) logs in with correct credentials and gets back a specialized token from the server,
-                                    which in my case is stored within httpOnly browser cookies. This Cookie, which contains the custom token gets sent back
-                                    to the server with every request. The server will only return user data if the token is valid. For example try accessing /profile page
-                                    at blitz-types.vercel.app while you're not logged in. You will get redirected. 
-                                </p>
-                                
-                                <p>
-                                    This token called an access token is valid for 15 min upon logging in. <br /> 
-                                    What happens after these 15 min? And why 15 min? For Security reasons a short lived access token is highly recommended. After the initial 15 min, the token will expire and the user is officially not logged in anymore.
-                                    But upon failure of fetching the next user data, the server will check if the user has a valid so called refreshToken in their cookies, which was also created upon logging in.
-                                    If the hashed refreshToken is valid the Server will generate another 15 min valid Access Token. Why a refreshToken? Since you don't want your users to have to log in again every 15 min,
-                                    theres this longer lived refreshToken, which is valid for a few days to weeks. The trade back being, that you have to store this refreshToken very securely.
-                                </p>
-
-                                <h2 className='text-3xl font-bold mb-4'>Features</h2>
-                                <p>
-                                    A Feature i particularly want to show and is easy to grasp is this pagination.
-                                </p>
-                                <Image className='rounded-xl mb-4' src="/static/fetchmorewords.png" alt='pagination feature' layout='responsive' width={500} height={300}></Image>
-                                <p>
-                                    Since loading hundreds of words at once would give some clients some difficulty. There is this load more which loads more words everytime the user starts typing a new line. 
-                                    Striking balance between not loading too much and not too little data.
-                                </p>
+                                <p>Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
+                                <h2 id="creative-design">Creative Design</h2>
+                                <p>Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.</p>
+                                <blockquote>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
+                                </blockquote>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!</p>
                             </div>
                             <div className="flex flex-wrap items-center justify-between">
                                 <ul className="mr-4 mb-4 space-x-3">
