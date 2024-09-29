@@ -21,7 +21,6 @@ const Intro = () => {
     const calculateTitleHeight = () => {
         if (contentRef.current) {
             const activeTitleItem = contentRef.current[index];
-            console.log(activeTitleItem);
             if (activeTitleItem) {
                 const prevEl = contentRef.current[index - 1];
                 if (prevEl) {

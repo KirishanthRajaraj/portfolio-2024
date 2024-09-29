@@ -15,10 +15,6 @@ const Timeline = () => {
     const dotRef = useRef(null);
     const dotIsInView = useInView(dotRef);
 
-    useEffect(() => {
-        console.log("Element is in view: ", dotIsInView)
-      }, [dotIsInView])
-
     return (
         <div className="container mx-auto p-[25px] relative">
             <h2 className="text-5xl font-bold mb-20 before:content-[''] before:absolute before:border-b-[18px] before:border-b-[#233047] before:w-[14rem] before:left-[3.5rem] before:top-[3.6rem] before:-z-10">Timeline</h2>

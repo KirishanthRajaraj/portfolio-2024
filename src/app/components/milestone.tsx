@@ -3,14 +3,18 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Milestone = ({ milestone, index }) => {
+interface MilestoneProps {
+    milestone: Milestone;
+    index: number;
+}
+
+const Milestone: React.FC<MilestoneProps> = ({ milestone, index }) => {
     const dotRef = useRef(null);
     const dotIsInView = useInView(dotRef);
     const [spread, setSpread] = useState(false);
 
     const toggleSpread = () => {
         setSpread(!spread);
-        console.log(("intialized"));
     };
 
     const content = (
