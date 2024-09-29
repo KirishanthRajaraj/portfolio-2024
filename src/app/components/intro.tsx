@@ -23,7 +23,7 @@ const Intro = () => {
             const activeTitleItem = contentRef.current[index];
             console.log(activeTitleItem);
             if (activeTitleItem) {
-                let prevEl = contentRef.current[index - 1];
+                const prevEl = contentRef.current[index - 1];
                 if (prevEl) {
                     setPrevHeight(prevEl.clientHeight);
                 }

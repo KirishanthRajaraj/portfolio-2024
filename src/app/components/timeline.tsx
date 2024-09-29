@@ -12,7 +12,6 @@ const milestones: Milestone[] = [
 ]
 
 const Timeline = () => {
-    const [spread, setSpread] = useState(false);
     const dotRef = useRef(null);
     const dotIsInView = useInView(dotRef);
 

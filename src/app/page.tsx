@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Intro from "./components/intro";
 import Timeline from "./components/timeline";
 import Projects from "./components/projects";
