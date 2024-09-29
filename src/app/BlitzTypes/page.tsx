@@ -40,20 +40,20 @@ const Blitztypes = () => {
                                     For Blitztypes i wanted to have the full, secure, professional authentication experience. So i decided to use JWT Token based authentication,
                                     which is the golden standard of authentication in Web development. ASP.NET Identity made this process even simpler for me, providing secure authentication methods, hashed password storage etc.
                                 </p>
-                                <p>Here's how it works:</p>
+                                <p>Here&apos;s how it works:</p>
                                 <Image className='rounded-xl mb-4' src="/static/jwt_auth.png" alt='Jwt Authentication' layout='responsive' width={500} height={300}></Image>
                                 <p>                 
                                     The basic idea is the client (the user) logs in with correct credentials and gets back a specialized token from the server,
                                     which in my case is stored within httpOnly browser cookies. This Cookie, which contains the custom token gets sent back
                                     to the server with every request. The server will only return user data if the token is valid. For example try accessing /profile page
-                                    at blitz-types.vercel.app while you're not logged in. You will get redirected. 
+                                    at blitz-types.vercel.app while you&apos;re not logged in. You will get redirected. 
                                 </p>
                                 
                                 <p>
                                     This token called an access token is valid for 15 min upon logging in. <br /> 
                                     What happens after these 15 min? And why 15 min? For Security reasons a short lived access token is highly recommended. After the initial 15 min, the token will expire and the user is officially not logged in anymore.
                                     But upon failure of fetching the next user data, the server will check if the user has a valid so called refreshToken in their cookies, which was also created upon logging in.
-                                    If the hashed refreshToken is valid the Server will generate another 15 min valid Access Token. Why a refreshToken? Since you don't want your users to have to log in again every 15 min,
+                                    If the hashed refreshToken is valid the Server will generate another 15 min valid Access Token. Why a refreshToken? Since you don&apos;t want your users to have to log in again every 15 min,
                                     theres this longer lived refreshToken, which is valid for a few days to weeks. The trade back being, that you have to store this refreshToken very securely.
                                 </p>
 

@@ -1,8 +1,8 @@
+'use client'
 import { motion, MotionConfig } from 'framer-motion'
-import { OctagonPauseIcon } from 'lucide-react';
 import React, { useState } from 'react'
 
-const hamburgerMenu = () => {
+const HamburgerMenu = () => {
 
     const [active, setActive] = useState(false);
 
@@ -11,7 +11,7 @@ const hamburgerMenu = () => {
             open: {
                 rotate: 45,
                 top: "50%",
-                left: "calc(50% + 4px)",
+                left: "calc(50%)",
                 width: "2rem",
             },
             closed: {
@@ -24,7 +24,7 @@ const hamburgerMenu = () => {
             open: {
                 rotate: -45,
                 width: "2rem",
-                left: "calc(50% + 4px)",
+                left: "calc(50%)",
 
             },
             closed: {
@@ -51,12 +51,12 @@ const hamburgerMenu = () => {
     };
 
     return (
-        <div>
+        <div className='flex'>
             <MotionConfig
                 transition={{
                     duration: 0.1,
                     ease: "easeInOut",
-                    type: "spring", 
+                    type: "spring",
                     stiffness: 200,
                     damping: 15,
                 }}
@@ -105,4 +105,4 @@ const hamburgerMenu = () => {
     )
 }
 
-export default hamburgerMenu;
+export default HamburgerMenu;

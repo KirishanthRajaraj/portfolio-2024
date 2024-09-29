@@ -19,8 +19,8 @@ const Navigation = () => {
     ];
 
     return (
-        <nav className="fixed z-40 w-full right-0 bg-background shadow-md shadow-background">
-        <div className="relative flex flex-col items-end p-8 !py-10 md:p-16">
+        <nav className="fixed z-40 w-full right-0 bg-background">
+        <div className="relative flex flex-col items-end p-8 !py-6  md:p-16">
             <div className="menu-wrapper relative z-50" onClick={toggleMenu}>
             <HamburgerMenu></HamburgerMenu>
             </div>

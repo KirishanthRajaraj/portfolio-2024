@@ -1,21 +1,17 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react'
-import Link from 'next/link';
-import showcase from '../images/chiliweb-showcase.png'
-import Image from 'next/image';
-import { CallTracker } from 'assert';
-import { motion, useInView } from "framer-motion"
+import { useInView } from "framer-motion"
 import Milestone from './milestone';
 
 const milestones: Milestone[] = [
-    { title: "Chili Digital AG", date: "2022 - current", subtitle: "My current dayjob in the middle of Zurich", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/chili.svg', logoAlt: 'swissarmedforces' },
-    { title: "Swiss Armed Forces", date: "2024 Jan. - May", subtitle: "Recruit School, as a Richtstrahl Pionier next to Zurich International Airport", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
+    { title: "Chili Digital AG", date: "2022 - current", subtitle: "My current dayjob in the middle of Zurich", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/chiliweb-showcase.png', logoAlt: 'swissarmedforces' },
+    { title: "Swiss Armed Forces", date: "2024 Jan. - May", subtitle: "Recruit School, as a Richtstrahl Pionier next to Zurich International Airport", imageUrl: '/static/kiri_military.jpeg', logo: '/static/swiss.png', logoAlt: 'swissarmedforces', link: '/military' },
     { title: "Language stay Eastbourne, England", date: "2019 - 2023", subtitle: "My formal education in IT Application Development, economics & law", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
     { title: "IMS Aarau\u00AD/\u00ADBaden", date: "2019 - 2023", subtitle: "My formal education in IT Application Development, economics & law", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
 ]
 
-const timeline = () => {
+const Timeline = () => {
     const [spread, setSpread] = useState(false);
     const dotRef = useRef(null);
     const dotIsInView = useInView(dotRef);
@@ -23,10 +19,6 @@ const timeline = () => {
     useEffect(() => {
         console.log("Element is in view: ", dotIsInView)
       }, [dotIsInView])
-
-    const toggleSpread = () => {
-        setSpread(!spread);
-    };
 
     return (
         <div className="container mx-auto p-[25px] relative">
@@ -47,4 +39,4 @@ const timeline = () => {
     )
 }
 
-export default timeline;
+export default Timeline;

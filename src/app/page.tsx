@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Navigation></Navigation>
-      <main className="pt-20">
+      <main className="pt-32">
         <Intro></Intro>
         <Timeline></Timeline>
         <AboutMe></AboutMe>
