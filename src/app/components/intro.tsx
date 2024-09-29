@@ -72,7 +72,7 @@ const intro = () => {
 
     return (
         <>
-            <div className="mx-auto px-4 sm:px-6 md:max-w-7xl md:px-8 max-w-[1140px] sm:max-w-[720px] xs:max-w-[540px]">
+            <div className="mx-auto px-4 sm:px-6 md:max-w-7xl md:px-8 max-w-[1140px] sm:max-w-[720px] xs:max-w-[540px] h-[calc(100vh - 5rem)] flex">
                 <div className="flex flex-col gap-10 md:flex-row md:items-center pb-20 flex-col-reverse">
 
                     <div className="md:w-1/2" data-aos="fade-right">

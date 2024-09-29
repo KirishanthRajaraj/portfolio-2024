@@ -1,6 +1,23 @@
 import React from 'react'
+import Skill from './skill';
 
 const aboutMe = () => {
+
+    const skills = [
+        { name: "C# ASP.NET", percentage: 75 },
+        { name: "HTML / CSS / JS", percentage: 90 },
+        { name: "React", percentage: 75 },
+        { name: "Typescript", percentage: 80 },
+        { name: "Umbraco CMS", percentage: 80 },
+        { name: "Hubspot CMS", percentage: 95 },
+        { name: "Git", percentage: 80 },
+        { name: "jQuery", percentage: 75 },
+    ];
+
+    const halfIndex = Math.ceil(skills.length / 2);
+    const firstHalf = skills.slice(0, halfIndex);
+    const secondHalf = skills.slice(halfIndex);
+
     return (
         <section>
             <div className="container mx-auto px-[25px] md:px-[25px] py-2">
@@ -31,28 +48,18 @@ const aboutMe = () => {
                             Skills
                         </h3>
                         <div className="grid md:gap-4 grid-cols-1 md:grid-cols-2">
+                            {/* {skills.map((skill, index) => (
 
+                            ))} */}
                             <div className="flex flex-col">
-                                <p className="text-gray-200 text-sm mb-2 font-bold">C# ASP.NET</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '80%' }}></div></div>
-                                <p className="text-gray-200 text-sm mb-2 font-bold">HTML / CSS / JS</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '90%' }}></div></div>
-                                <p className="text-gray-200 text-sm mb-2 font-bold">React</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '75%' }}></div></div>
-                                <p className="text-gray-200 text-sm mb-2 font-bold">Typescript</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '80%' }}></div></div>
-
+                                {firstHalf.map((skill, index) => (
+                                    <Skill key={index} name={skill.name} percentage={skill.percentage} />
+                                ))}
                             </div>
                             <div className="flex flex-col">
-                                <p className="text-gray-200 text-sm mb-2 font-bold">Umbraco CMS</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '80%' }}></div></div>
-                                <p className="text-gray-200 text-sm mb-2 font-bold">Hubspot CMS</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '95%' }}></div></div>
-                                <p className="text-gray-200 text-sm mb-2 font-bold">Git</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '80%' }}></div></div>
-
-                                <p className="text-gray-200 text-sm mb-2 font-bold">Python</p>
-                                <div className="border-green border h-4 mb-4"><div className="h-full bg-green" style={{ width: '60%' }}></div></div>
+                                {secondHalf.map((skill, index) => (
+                                    <Skill key={index} name={skill.name} percentage={skill.percentage} />
+                                ))}
                             </div>
 
                         </div>
