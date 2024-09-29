@@ -1,4 +1,4 @@
-interface Milestone {
+export interface MilestoneData {
     title: string;
     imageUrl: string;
     date: string;

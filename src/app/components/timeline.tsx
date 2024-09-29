@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react'
-import { useInView } from "framer-motion"
+import React from 'react'
 import Milestone from './milestone';
+import { MilestoneData } from '../interface/milestone';
 
-const milestones: Milestone[] = [
+const milestones: MilestoneData[] = [
     { title: "Chili Digital AG", date: "2022 - current", subtitle: "My current dayjob in the middle of Zurich", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/chiliweb-showcase.png', logoAlt: 'swissarmedforces' },
     { title: "Swiss Armed Forces", date: "2024 Jan. - May", subtitle: "Recruit School, as a Richtstrahl Pionier next to Zurich International Airport", imageUrl: '/static/kiri_military.jpeg', logo: '/static/swiss.png', logoAlt: 'swissarmedforces', link: '/military' },
     { title: "Language stay Eastbourne, England", date: "2019 - 2023", subtitle: "My formal education in IT Application Development, economics & law", imageUrl: '/static/chiliweb-showcase.png', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
@@ -12,8 +12,6 @@ const milestones: Milestone[] = [
 ]
 
 const Timeline = () => {
-    const dotRef = useRef(null);
-    const dotIsInView = useInView(dotRef);
 
     return (
         <div className="container mx-auto p-[25px] relative">

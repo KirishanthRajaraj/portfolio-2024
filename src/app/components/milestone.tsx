@@ -2,9 +2,10 @@ import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { MilestoneData } from '../interface/milestone';
 
 interface MilestoneProps {
-    milestone: Milestone;
+    milestone: MilestoneData;
     index: number;
 }
 
