@@ -10,6 +10,7 @@ const Milestone = ({ milestone, index }) => {
 
     const toggleSpread = () => {
         setSpread(!spread);
+        console.log(("intialized"));
     };
 
     const content = (
