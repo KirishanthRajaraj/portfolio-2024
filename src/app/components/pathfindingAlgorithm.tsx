@@ -3,22 +3,17 @@ import p5 from 'p5';
 import { useEffect } from 'react';
 
 const PathfindingAlgorithm = () => {
-    var grid;
-    var gridManager;
-    var startingNode;
-    var targetNode;
-    var a_star;
-    var col_row_length = 50;
-    var grid_size_px = 400;
-    var guessPathActive = false;
-    var drawObstActive = false;
-    var gridGuessPath;
-    var startingNodeGuessPath;
-    var targetNodeGuessPath;
-    var temp_tenative_g;
+    let grid;
+    let gridManager;
+    let startingNode;
+    let targetNode;
+    let a_star;
+    let col_row_length = 50;
+    let grid_size_px = 400;
+    let drawObstActive = false;
+    let temp_tenative_g;
     let myp5;
-    var canvas;
-    var container;
+    let container;
     let buttonCreated = false;
 
     //setup p5
