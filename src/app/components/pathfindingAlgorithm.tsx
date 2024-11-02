@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const PathfindingAlgorithm = () => {
     let grid;
     let gridManager;
-    const startingNode;
+    let startingNode;
     let targetNode;
     let a_star;
     let col_row_length = 50;
@@ -30,7 +30,7 @@ const PathfindingAlgorithm = () => {
             gridManager = new GridManager(sketch);
             grid = gridManager.createGrid();
             gridManager.createObstacleNodes(0.56);
-            let startingNode = gridManager.createStartingNode();
+            startingNode = gridManager.createStartingNode();
             let targetNode = gridManager.createTargetNode();
 
             a_star = new A_Star(startingNode, targetNode, grid, sketch);
