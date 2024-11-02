@@ -349,11 +349,11 @@ const PathfindingAlgorithm = () => {
     }
 
     useEffect(() => {
-        // To make sure canvas only renders ones
-        if (!myp5) {
-            myp5 = new p5(manager);
+        if (typeof window !== 'undefined') {
+            if(!myp5) {
+                myp5 = new p5(manager);
+            }
         }
-
     }, []);
 
     return (
