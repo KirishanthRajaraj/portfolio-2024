@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const PathfindingAlgorithm = () => {
     let grid;
     let gridManager;
-    let startingNode;
+    const startingNode;
     let targetNode;
     let a_star;
     let col_row_length = 50;
@@ -21,7 +21,7 @@ const PathfindingAlgorithm = () => {
 
         sketch.setup = () => {
             container = sketch.select('#p5-container');
-            var canvas = sketch.createCanvas(grid_size_px, grid_size_px);
+            let canvas = sketch.createCanvas(grid_size_px, grid_size_px);
             console.log(canvas);
             console.log("initted");
             container.child(canvas);
@@ -35,7 +35,7 @@ const PathfindingAlgorithm = () => {
 
             a_star = new A_Star(startingNode, targetNode, grid, sketch);
 
-            var userInteractions = new User(sketch);
+            let userInteractions = new User(sketch);
             userInteractions.StartAlgorithmButton();
 
             sketch.loop();
@@ -82,7 +82,7 @@ const PathfindingAlgorithm = () => {
 
         this.createStartingNode = function () {
             // set random starting node
-            var starting_range = 0.4 * col_row_length;
+            let starting_range = 0.4 * col_row_length;
             startingNode = grid[sketch.int(sketch.random(0, starting_range))][sketch.int(sketch.random(0, starting_range))];
             startingNode.isObstacle = false;
             startingNode.color(sketch.color(0, 255, 0));
@@ -93,7 +93,7 @@ const PathfindingAlgorithm = () => {
 
         this.createTargetNode = function () {
             // set random target node
-            var ending_range = 0.6 * col_row_length;
+            let ending_range = 0.6 * col_row_length;
             targetNode =
                 grid[sketch.int(sketch.random(ending_range, col_row_length))][
                 sketch.int(sketch.random(ending_range, col_row_length))
@@ -131,8 +131,8 @@ const PathfindingAlgorithm = () => {
 
         this.init = function () {
             if (this.isObstacle) {
-                let margin = this.w * 0.2;
-                let size = this.w - margin * 2;
+                const margin = this.w * 0.2;
+                const size = this.w - margin * 2;
 
                 sketch.fill(this.box_color);
                 sketch.rect(this.px + margin, this.py + margin, size, size, 5);
@@ -161,8 +161,8 @@ const PathfindingAlgorithm = () => {
         };
 
         this.findNeighbours = function (current, grid) {
-            let neighbours = [];
-            let directions = [
+            const neighbours = [];
+            const directions = [
                 [1, 0],
                 [-1, 0],
                 [0, 1],
@@ -174,8 +174,8 @@ const PathfindingAlgorithm = () => {
             ];
 
             for (let direction of directions) {
-                let newX = current.x + direction[0];
-                let newY = current.y + direction[1];
+                const newX = current.x + direction[0];
+                const newY = current.y + direction[1];
                 // Check if the new coordinates are within the grid bounds or an obstacle
                 if (
                     newX >= 0 &&
@@ -193,8 +193,8 @@ const PathfindingAlgorithm = () => {
     // user
 
     function User(sketch) {
-        let startButton;
-        this.StartAlgorithmButton = function (noObstacles) {
+        const startButton;
+        this.StartAlgorithmButton = function () {
             if (!buttonCreated) {
                 startButton = sketch.createButton("Start Algorithm!");
                 container.child(startButton);
@@ -218,14 +218,14 @@ const PathfindingAlgorithm = () => {
 
     //a_star
     function A_Star(startingNode, targetNode, grid, sketch) {
-        let openSet = [];
-        let closedSet = [];
-        let finalPath = [];
+        const openSet = [];
+        const closedSet = [];
+        const finalPath = [];
 
         openSet.push(startingNode);
         this.calculate = function () {
             if (openSet.length != 0) {
-                var currentNode = getNodeWithLowestFScore(openSet);
+                let currentNode = getNodeWithLowestFScore(openSet);
 
                 if (JSON.stringify(currentNode) === JSON.stringify(targetNode)) {
                     // track back path
@@ -307,14 +307,14 @@ const PathfindingAlgorithm = () => {
     }
 
     function calcHCost(current, targetNode) {
-        let diffX = Math.abs(targetNode.y - current.y);
-        let diffY = Math.abs(targetNode.x - current.x);
+        const diffX = Math.abs(targetNode.y - current.y);
+        const diffY = Math.abs(targetNode.x - current.x);
         return diffX + diffY;
     }
 
     function getNodeWithLowestFScore(openSet) {
         let lowestFNode = openSet[0];
-        for (let node of openSet) {
+        for (const node of openSet) {
             if (node.f < lowestFNode.f) {
                 lowestFNode = node;
             }
