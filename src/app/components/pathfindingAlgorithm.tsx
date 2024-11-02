@@ -8,8 +8,8 @@ const PathfindingAlgorithm = () => {
     let startingNode;
     let targetNode;
     let a_star;
-    let col_row_length = 50;
-    let grid_size_px = 400;
+    const col_row_length = 50;
+    const grid_size_px = 400;
     let drawObstActive = false;
     let temp_tenative_g;
     let myp5;
@@ -17,11 +17,11 @@ const PathfindingAlgorithm = () => {
     let buttonCreated = false;
 
     //setup p5
-    const manager = (sketch: any) => {
+    const manager = (sketch) => {
 
         sketch.setup = () => {
             container = sketch.select('#p5-container');
-            let canvas = sketch.createCanvas(grid_size_px, grid_size_px);
+            const canvas = sketch.createCanvas(grid_size_px, grid_size_px);
             console.log(canvas);
             console.log("initted");
             container.child(canvas);
@@ -31,11 +31,11 @@ const PathfindingAlgorithm = () => {
             grid = gridManager.createGrid();
             gridManager.createObstacleNodes(0.56);
             startingNode = gridManager.createStartingNode();
-            let targetNode = gridManager.createTargetNode();
+            targetNode = gridManager.createTargetNode();
 
             a_star = new A_Star(startingNode, targetNode, grid, sketch);
 
-            let userInteractions = new User(sketch);
+            const userInteractions = new User(sketch);
             userInteractions.StartAlgorithmButton();
 
             sketch.loop();
@@ -82,7 +82,7 @@ const PathfindingAlgorithm = () => {
 
         this.createStartingNode = function () {
             // set random starting node
-            let starting_range = 0.4 * col_row_length;
+            const starting_range = 0.4 * col_row_length;
             startingNode = grid[sketch.int(sketch.random(0, starting_range))][sketch.int(sketch.random(0, starting_range))];
             startingNode.isObstacle = false;
             startingNode.color(sketch.color(0, 255, 0));
@@ -93,7 +93,7 @@ const PathfindingAlgorithm = () => {
 
         this.createTargetNode = function () {
             // set random target node
-            let ending_range = 0.6 * col_row_length;
+            const ending_range = 0.6 * col_row_length;
             targetNode =
                 grid[sketch.int(sketch.random(ending_range, col_row_length))][
                 sketch.int(sketch.random(ending_range, col_row_length))
@@ -173,7 +173,7 @@ const PathfindingAlgorithm = () => {
                 [1, 1],
             ];
 
-            for (let direction of directions) {
+            for (const direction of directions) {
                 const newX = current.x + direction[0];
                 const newY = current.y + direction[1];
                 // Check if the new coordinates are within the grid bounds or an obstacle
@@ -225,7 +225,7 @@ const PathfindingAlgorithm = () => {
         openSet.push(startingNode);
         this.calculate = function () {
             if (openSet.length != 0) {
-                let currentNode = getNodeWithLowestFScore(openSet);
+                const currentNode = getNodeWithLowestFScore(openSet);
 
                 if (JSON.stringify(currentNode) === JSON.stringify(targetNode)) {
                     // track back path
@@ -243,7 +243,7 @@ const PathfindingAlgorithm = () => {
 
                 openSet.remove(currentNode);
 
-                let neighbours = currentNode.findNeighbours(currentNode, grid);
+                const neighbours = currentNode.findNeighbours(currentNode, grid);
 
                 for (let i = 0; i < neighbours.length; i++) {
                     if (
