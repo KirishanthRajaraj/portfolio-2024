@@ -193,7 +193,7 @@ const PathfindingAlgorithm = () => {
     // user
 
     function User(sketch) {
-        const startButton;
+        let startButton;
         this.StartAlgorithmButton = function () {
             if (!buttonCreated) {
                 startButton = sketch.createButton("Start Algorithm!");
