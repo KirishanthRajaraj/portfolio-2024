@@ -3,24 +3,22 @@ import p5 from 'p5';
 import { useEffect } from 'react';
 
 const PathfindingAlgorithm = () => {
-    let grid;
-    let gridManager;
-    let startingNode;
-    let targetNode;
-    let a_star;
-    const col_row_length = 50;
-    const grid_size_px = 400;
-    let drawObstActive = false;
-    let temp_tenative_g;
-    let myp5;
-    let container;
-    let buttonCreated = false;
-
-
+    let isInitialized = false;
 
     useEffect(() => {
-
-        if (typeof window !== "undefined") {
+        if (typeof window !== "undefined" && !isInitialized) {
+            let grid;
+            let gridManager;
+            let startingNode;
+            let targetNode;
+            let a_star;
+            const col_row_length = 50;
+            const grid_size_px = 400;
+            let drawObstActive = false;
+            let temp_tenative_g;
+            let myp5;
+            let container;
+            let buttonCreated = false;
 
             //setup p5
             const manager = (sketch) => {
@@ -358,6 +356,7 @@ const PathfindingAlgorithm = () => {
             }
         }
 
+        isInitialized = true;
     }, []);
 
     return (
