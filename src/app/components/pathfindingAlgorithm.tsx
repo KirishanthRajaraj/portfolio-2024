@@ -2,11 +2,16 @@
 import p5 from 'p5';
 import { useEffect } from 'react';
 
-const PathfindingAlgorithm = () => {
+interface Props {
+    is_dijkstras: boolean;
+}
+
+const PathfindingAlgorithm = ({ is_dijkstras }: Props )=> {
     let isInitialized = false;
 
+    //useEffect needed to prevent double rendering due to p5 library
     useEffect(() => {
-        if (typeof window !== "undefined" && !isInitialized) {
+        if (!isInitialized) {
             let grid;
             let gridManager;
             let startingNode;
@@ -19,6 +24,7 @@ const PathfindingAlgorithm = () => {
             let myp5;
             let container;
             let buttonCreated = false;
+            let startButton;
 
             //setup p5
             const manager = (sketch) => {
@@ -200,17 +206,17 @@ const PathfindingAlgorithm = () => {
             // user
 
             function User(sketch) {
-                let startButton;
                 this.StartAlgorithmButton = function () {
                     if (!buttonCreated) {
                         startButton = sketch.createButton("Start Algorithm!");
-                        container.child(startButton);
-                        startButton.position(25, 510);
+                        let buttonContainer = sketch.select('#redo-algorithm');
+                        buttonContainer.child(startButton);
+
                         startButton.class("px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green");
                         buttonCreated = true;
                     }
 
-                    startButton.mouseClicked(() => {
+                    startButton.mousePressed(() => {
 
                         if (drawObstActive) {
                             new A_Star(startingNode, targetNode, grid, sketch).calculate();
@@ -273,8 +279,8 @@ const PathfindingAlgorithm = () => {
                                     neighbours[i].prev = currentNode;
 
                                     neighbours[i].g = temp_tenative_g;
-                                    neighbours[i].f =
-                                        temp_tenative_g + calcHCost(neighbours[i], targetNode);
+                                    neighbours[i].f = temp_tenative_g + calcHCost(neighbours[i], targetNode);
+                                    
 
                                     if (!isObjInArr(neighbours[i], openSet)) {
                                         openSet.push(neighbours[i]);
@@ -362,6 +368,9 @@ const PathfindingAlgorithm = () => {
     return (
         <div className="container mx-auto px-[25px] py-20 relative">
             <div id='p5-container' className='flex justify-center'>
+            </div>
+            <div id='redo-algorithm' className="button-container flex justify-center mt-4">
+
             </div>
         </div>
     );
