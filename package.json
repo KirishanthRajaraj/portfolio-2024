@@ -18,7 +18,6 @@
     "p5": "^1.11.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-syntax-highlighter": "^15.6.1",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
