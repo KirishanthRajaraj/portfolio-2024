@@ -1,62 +1,112 @@
 'use client';
 import p5 from 'p5';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const PathfindingAlgorithm = () => {
+const PathfindingComparison = () => {
+    const [astarTime, setAstarTime] = useState(null);
+    const [dijkstraTime, setDijkstraTime] = useState(null);
     let isInitialized = false;
+    useEffect(() => {
+        console.log(astarTime);
+    }, [astarTime]);
+
 
     //useEffect needed to prevent double rendering due to p5 library
     useEffect(() => {
         if (!isInitialized) {
-            let grid;
-            let gridManager;
-            let startingNode;
-            let targetNode;
-            let a_star;
+            let grid1, grid2;
+            let gridManager1, gridManager2;
+            let startingNode1, startingNode2;
+            let targetNode1, targetNode2;
+            let a_star, dijkstra;
             const col_row_length = 50;
-            const grid_size_px = 400;
+            const grid_size_px = 250;
             let drawObstActive = false;
-            let temp_tenative_g;
-            let myp5;
             let container;
             let buttonCreated = false;
             let startButton;
 
-            //setup p5
-            const manager = (sketch) => {
+            let astarStartTime = null;
+            let dijkstraStartTime = null;
 
+            //setup p5
+            const setupSketch = (sketch, isDijkstras) => {
                 sketch.setup = () => {
-                    container = sketch.select('#p5-container');
+                    const container = isDijkstras ? sketch.select('#p5-container-dijkstra') : sketch.select('#p5-container-astar');
                     const canvas = sketch.createCanvas(grid_size_px, grid_size_px);
                     container.child(canvas);
+                    canvas.style('max-width', '100%');
+                    canvas.style('height', 'auto');
 
-                    // generate new grid
-                    gridManager = new GridManager(sketch);
-                    grid = gridManager.createGrid();
-                    gridManager.createObstacleNodes(0.6);
-                    startingNode = gridManager.createStartingNode();
-                    targetNode = gridManager.createTargetNode();
+                    const gridManager = new GridManager(sketch);
+                    const grid = gridManager.createGrid();
+                    gridManager.createObstacleNodes(0.60);
+                    const startingNode = gridManager.createStartingNode();
+                    const targetNode = gridManager.createTargetNode();
 
-                    a_star = new A_Star(startingNode, targetNode, grid, sketch);
+                    const algorithm = new A_Star(startingNode, targetNode, grid, sketch, isDijkstras);
 
-                    const userInteractions = new User(sketch);
-                    userInteractions.StartAlgorithmButton();
+                    if (isDijkstras) {
+                        gridManager2 = gridManager;
+                        grid2 = grid;
+                        startingNode2 = startingNode;
+                        targetNode2 = targetNode;
+                        dijkstra = algorithm;
+                    } else {
+                        gridManager1 = gridManager;
+                        grid1 = grid;
+                        startingNode1 = startingNode;
+                        targetNode1 = targetNode;
+                        a_star = algorithm;
+                    }
 
                     sketch.loop();
                 };
 
                 sketch.draw = () => {
-                    a_star.calculate();
+                    if (isDijkstras) {
+                        if (!dijkstraStartTime) dijkstraStartTime = Date.now();
+                        if (dijkstra.calculate()) {
+                            const elapsed = Date.now() - dijkstraStartTime;
+                            setDijkstraTime((elapsed / 1000).toFixed(2));
+                            sketch.noLoop();
+                        }
+                    } else {
+                        if (!astarStartTime) astarStartTime = Date.now();
+                        if (a_star.calculate()) {
+                            const elapsed = Date.now() - astarStartTime;
+                            setAstarTime((elapsed / 1000).toFixed(2));
+                            sketch.noLoop();
+                        }
+                    }
                 };
             };
 
-            if (!myp5) {
-                myp5 = new p5(manager);
+            const p5Astar = new p5(sketch => setupSketch(sketch, false));
+            const p5Dijkstra = new p5(sketch => setupSketch(sketch, true));
+            // Button to start both algorithms
+            if (!buttonCreated) {
+                startButton = p5Astar.createButton("Compare");
+                const buttonContainer = p5Astar.select('#redo-algorithm-comparison');
+                buttonContainer.child(startButton);
+
+                startButton.class("px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green");
+
+                startButton.mousePressed(() => {
+                    astarStartTime = null;
+                    dijkstraStartTime = null;
+                    setAstarTime(null);
+                    setDijkstraTime(null);
+                    p5Astar.setup();
+                    p5Dijkstra.setup();
+                });
+
+                buttonCreated = true;
             }
 
             //grid manager
-
             function GridManager(sketch) {
+                let grid;
                 this.createGrid = function () {
                     grid = new Array(col_row_length);
 
@@ -90,7 +140,7 @@ const PathfindingAlgorithm = () => {
                 this.createStartingNode = function () {
                     // set random starting node
                     const starting_range = 0.4 * col_row_length;
-                    startingNode = grid[sketch.int(sketch.random(0, starting_range))][sketch.int(sketch.random(0, starting_range))];
+                    let startingNode = grid[sketch.int(sketch.random(0, starting_range))][sketch.int(sketch.random(0, starting_range))];
                     startingNode.isObstacle = false;
                     startingNode.color(sketch.color(0, 255, 0));
                     startingNode.g = 0;
@@ -101,7 +151,7 @@ const PathfindingAlgorithm = () => {
                 this.createTargetNode = function () {
                     // set random target node
                     const ending_range = 0.6 * col_row_length;
-                    targetNode =
+                    let targetNode =
                         grid[sketch.int(sketch.random(ending_range, col_row_length))][
                         sketch.int(sketch.random(ending_range, col_row_length))
                         ];
@@ -197,34 +247,9 @@ const PathfindingAlgorithm = () => {
                 };
             }
 
-            // user
-
-            function User(sketch) {
-                this.StartAlgorithmButton = function () {
-                    if (!buttonCreated) {
-                        startButton = sketch.createButton("Start Algorithm!");
-                        let buttonContainer = sketch.select('#redo-algorithm');
-                        buttonContainer.child(startButton);
-
-                        startButton.class("px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green");
-                        buttonCreated = true;
-                    }
-
-                    startButton.mousePressed(() => {
-                        sketch.select('#no-solution').elt.textContent = '';
-                        if (drawObstActive) {
-                            new A_Star(startingNode, targetNode, grid, sketch).calculate();
-                            sketch.loop();
-                        } else {
-                            sketch.setup();
-                        }
-                        drawObstActive = false;
-                    });
-                };
-            }
-
             //a_star
-            function A_Star(startingNode, targetNode, grid, sketch) {
+            function A_Star(startingNode, targetNode, grid, sketch, isDijkstras) {
+                this.isDijkstras = isDijkstras;
                 const openSet = [];
                 const closedSet = [];
                 const finalPath = [];
@@ -257,7 +282,7 @@ const PathfindingAlgorithm = () => {
                                 !neighbours[i].isObstacle &&
                                 !isObjInArr(neighbours[i], closedSet)
                             ) {
-                                temp_tenative_g =
+                                let temp_tenative_g =
                                     currentNode.g + distNeighbour(currentNode, neighbours[i]);
 
                                 // avoid coloring start and endnode
@@ -273,7 +298,7 @@ const PathfindingAlgorithm = () => {
                                     neighbours[i].prev = currentNode;
 
                                     neighbours[i].g = temp_tenative_g;
-                                    neighbours[i].f = temp_tenative_g + calcHCost(neighbours[i], targetNode);
+                                    neighbours[i].f = isDijkstras ? temp_tenative_g : temp_tenative_g + calcHCost(neighbours[i], targetNode);
 
 
                                     if (!isObjInArr(neighbours[i], openSet)) {
@@ -288,7 +313,10 @@ const PathfindingAlgorithm = () => {
                         }
                     } else {
                         sketch.noLoop();
-                        sketch.select('#no-solution').elt.textContent = 'No solution';
+                        sketch.textSize(25);
+                        sketch.fill(255);
+                        sketch.textStyle(sketch.BOLD);
+                        sketch.text('no solution', 10, 530);
                         return;
                     }
                 };
@@ -357,41 +385,23 @@ const PathfindingAlgorithm = () => {
     }, []);
 
     return (
-        <div className="container mx-auto px-[25px] py-8 relative">
-            <div className="canvas-wrapper">
-
-                <div className="flex gap-2 flex-wrap justify-center mb-4">
-                    <div className="flex items-center space-x-2 text-xs">
-                        <div className="w-3 h-3 rounded-[5px] bg-[#00ff00]"></div>
-                        <span className="text-white">Starting Point</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-xs">
-                        <div className="w-3 h-3 rounded-[5px] bg-[#8B0000]"></div>
-                        <span className="text-white">Ending Point</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-xs">
-                        <div className="w-3 h-3 rounded-[5px] bg-[#233047]"></div>
-                        <span className="text-white">Obstacle</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-xs">
-                        <div className="w-3 h-3 rounded-[5px] bg-[#3c0068]"></div>
-                        <span className="text-white">Tracked Fields</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-xs">
-                        <div className="w-3 h-3 rounded-[5px] bg-[#17F29A]"></div>
-                        <span className="text-white">Final Path</span>
-                    </div>
+        <div className="container mx-auto relative">
+            <div className="flex justify-center gap-4">
+                <div className="astar">
+                    <p className='font-bold text-xl mb-3'>A*:</p>
+                    <div id='p5-container-astar' className='flex justify-center'></div>
                 </div>
-
-                <div id='p5-container' className='flex justify-center'>
+                <div className="dijkstras">
+                    <p className='font-bold text-xl mb-3'>Dijkstras:</p>
+                    <div id='p5-container-dijkstra' className='flex justify-center'></div>
                 </div>
-                <div id='no-solution' className="text-white font-bold text-lg mt-2 text-center"></div>
-                <div id='redo-algorithm' className="button-container flex justify-center mt-4"></div>
             </div>
+            <div id='redo-algorithm-comparison' className="button-container flex justify-center mt-4">
 
+            </div>
         </div>
     );
 };
 
-export default PathfindingAlgorithm;
+export default PathfindingComparison;
 
