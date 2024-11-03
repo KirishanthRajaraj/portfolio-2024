@@ -1,8 +1,13 @@
 import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { SquareArrowOutUpRight } from 'lucide-react';
-import PathfindingAlgorithm from './pathfindingAlgorithm';
+const PathfindingAlgorithm = dynamic(
+    () => import('../components/pathfindingAlgorithm'),
+    { ssr: false }
+)
+
 
 const projects = () => {
     return (
