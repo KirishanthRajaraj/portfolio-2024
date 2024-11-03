@@ -5,10 +5,10 @@ import Milestone from './milestone';
 import { MilestoneData } from '../interface/milestone';
 
 const milestones: MilestoneData[] = [
-    { title: "Chili Digital AG", date: "2022 - current", subtitle: "My current full time job in Zurich District 8", imageUrl: '/static/chiliweb-showcase.png',  logo: '/static/chiliweb-showcase.png', logoAlt: 'swissarmedforces', link: 'https://chili.ch' },
+    { title: "Chili Digital AG", date: "2022 - current", subtitle: "My current full time job in Zurich District 8", imageUrl: '/static/chiliweb-showcase.png',  logo: '/static/chili-logo.svg', logoAlt: 'swissarmedforces', link: 'https://chili.ch' },
     { title: "Swiss Armed Forces", date: "2024 Jan. - May", subtitle: "Recruit School, as a Richtstrahl Pionier", imageUrl: '/static/kiri_military02.jpeg', imageUrl2: '/static/kiri_military.jpeg', logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
-    { title: "Language stay Eastbourne, England", date: "2021 Sep. - Oct.", subtitle: "Preparation for Cambridge Advanced exam", logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
-    { title: "IMS Aarau\u00AD/\u00ADBaden", date: "2019 - 2023", subtitle: "My formal education in IT Application Development, economics & law", logo: '/static/swiss.png', logoAlt: 'swissarmedforces' },
+    { title: "Language stay Eastbourne, England", date: "2021 Sep. - Oct.", subtitle: "Preparation for Cambridge Advanced exam at ELC Eastbourne", logo: '/static/elc.jpeg', logoAlt: 'swissarmedforces', isRound: true },
+    { title: "IMS Aarau\u00AD/\u00ADBaden", date: "2019 - 2023", subtitle: "My formal education in IT Application Development, economics & law", logo: '/static/alte-kanti.svg', logoAlt: 'swissarmedforces' },
 ]
 
 const Timeline = () => {

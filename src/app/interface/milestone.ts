@@ -7,4 +7,5 @@ export interface MilestoneData {
     logo: string;
     logoAlt: string;
     link?: string;
+    isRound?: boolean;
 }
