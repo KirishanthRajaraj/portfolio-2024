@@ -2,7 +2,7 @@
 import p5 from 'p5';
 import { useEffect } from 'react';
 
-const PathfindingAlgorithm = () => {
+const PathfindingAlgorithm = ({ className }) => {
     let isInitialized = false;
 
     //useEffect needed to prevent double rendering due to p5 library
@@ -29,6 +29,8 @@ const PathfindingAlgorithm = () => {
                     container = sketch.select('#p5-container');
                     const canvas = sketch.createCanvas(grid_size_px, grid_size_px);
                     container.child(canvas);
+                    canvas.style('max-width', '100%');
+                    canvas.style('height', 'auto');
 
                     // generate new grid
                     gridManager = new GridManager(sketch);
@@ -357,7 +359,7 @@ const PathfindingAlgorithm = () => {
     }, []);
 
     return (
-        <div className="container mx-auto px-[25px] py-8 relative">
+        <div className={`${className} container mx-auto md:py-8 relative`}>
             <div className="canvas-wrapper">
 
                 <div className="flex gap-2 flex-wrap justify-center mb-4">
@@ -388,7 +390,6 @@ const PathfindingAlgorithm = () => {
                 <div id='no-solution' className="text-white font-bold text-lg mt-2 text-center"></div>
                 <div id='redo-algorithm' className="button-container flex justify-center mt-4"></div>
             </div>
-
         </div>
     );
 };

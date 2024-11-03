@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { SquareArrowOutUpRight } from 'lucide-react';
+import PathfindingAlgorithm from './pathfindingAlgorithm';
 
 const projects = () => {
     return (
@@ -16,34 +17,63 @@ const projects = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-10 md:gap-16 flex-col lg:flex-row">
+                <div className="flex gap-10 md:gap-16 md:flex-col flex-col-reverse lg:flex-row mb-10 justify-center">
                     <div className='img__wrapper w-full lg:w-[70%] xl:w-[70%]'>
                         <Link href={"https://blitz-types.vercel.app/"} target='_blank' className=''>
                             <Image src="/static/blitztypes_showcase.png" className='rounded-3xl shadow-black shadow-lg  transition-transform duration-500 ease-in-out transform hover:scale-105' width={500} height={500} layout='responsive' alt='BlitzTypes Showcase'></Image>
                         </Link>
                     </div>
 
-                    <div className="content w-full xl:w-[40%] lg:w-[40%]">
-                        <h3 className='text-3xl font-bold mb-6 text-green'>
-                            BlitzTypes
-                        </h3>
-                        <div className="lead md:text-xl font-semibold ">
-                            A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard. Built with React, Next.js, .NET Web API, MS SQL Server DB, Tailwind, Azure App Service and Vercel for deployment.
-                        </div>
-
-                        <div className="flex items-center flex-wrap gap-4">
-                            <div className="btn mt-8">
-                                <Link href={"https://blitz-types.vercel.app/"} target='_blank' className='flex items-center px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
-                                    <SquareArrowOutUpRight />
-                                </Link>
+                    <div className="content w-full xl:w-[40%] lg:w-[40%] flex items-center">
+                        <div className="content-wrapper">
+                            <h3 className='text-3xl font-bold mb-6 text-green'>
+                                BlitzTypes
+                            </h3>
+                            <div className="lead md:text-xl font-semibold ">
+                                A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard. Built with React, Next.js, .NET Web API, MS SQL Server DB, Tailwind, Azure App Service and Vercel for deployment.
                             </div>
 
-                            <div className="btn mt-8">
-                                <Link href={"/BlitzTypes"} className='px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
-                                    Learn more
-                                </Link>
+                            <div className="flex items-center flex-wrap gap-4">
+                                <div className="btn mt-8">
+                                    <Link href={"https://blitz-types.vercel.app/"} target='_blank' className='flex items-center px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                        <SquareArrowOutUpRight />
+                                    </Link>
+                                </div>
+
+                                <div className="btn mt-8">
+                                    <Link href={"/BlitzTypes"} className='px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                        Learn more
+                                    </Link>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div className="flex gap-10 md:gap-16 flex-col lg:flex-row justify-center">
+                    <div className="content w-full xl:w-[40%] lg:w-[40%] flex items-center">
+                        <div className="content-wrapper">
+                            <h3 className='text-3xl font-bold mb-6 text-green'>
+                                A* Pathfinding Algorithm
+                            </h3>
+                            <div className="lead md:text-xl font-semibold ">
+                                Here i am showcasing a highly efficient Algorithm to find the shortest path form Point A to Point B. For this visualization i used a Javascript library called p5.js, commonly used for demonstrations. 
+                            </div>
+
+                            <div className="flex items-center flex-wrap gap-4">
+                                <div className="btn mt-8">
+                                    <Link href={"/pathfinding"} className='px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                        Learn more
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='img__wrapper w-full lg:w-[30%] xl:w-[30%]'>
+                        <Link href={"/pathfinding"} target='_blank' className=''>
+                            <PathfindingAlgorithm className='rounded-3xl transition-transform duration-500 ease-in-out transform hover:scale-105'/>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MilestoneData } from '../interface/milestone';
+import { div } from 'framer-motion/client';
 
 interface MilestoneProps {
     milestone: MilestoneData;
@@ -19,37 +20,47 @@ const Milestone: React.FC<MilestoneProps> = ({ milestone, index }) => {
     };
 
     const content = (
-        <div className="mt-6 md:mt-0 relative max-w-[80%] w-64 h-36 group hover:cursor-pointer" onClick={toggleSpread}>
-            <div className='wrapper duration-75 group-hover:opacity-100 opacity-75'>
-                <Image
-                    src={milestone.imageUrl}
-                    alt={milestone.title}
-                    layout="responsive"
-                    width={500}
-                    height={500}
-                    className={`absolute top-0 left-0 w-full h-full object-cover transition-all ease-in-out duration-500 rounded-3xl aspect-[4/3] group-hover:rotate-[-15deg] group-hover:translate-x-[-30px] 
-                 group-hover:z-10 group-hover:cursor-pointer`}
-                />
-            </div>
+        <div className="milestone-content__wrapper flex justify-end">
+            {milestone.imageUrl ? (
+                <div className="mt-6 md:mt-0 relative max-w-[80%] w-64 h-36 group hover:cursor-pointer" onClick={toggleSpread}>
+                    <div className='wrapper duration-75 group-hover:opacity-100 opacity-75'>
+                        <Image
+                            src={milestone.imageUrl}
+                            alt={milestone.title}
+                            layout="responsive"
+                            width={500}
+                            height={500}
+                            className={`absolute top-0 left-0 w-full h-full object-cover transition-all ease-in-out duration-500 rounded-3xl aspect-[4/3] 
+                            ${milestone.imageUrl2 ?
+                                    'group-hover:rotate-[-15deg] group-hover:translate-x-[-30px] group-hover:z-10 group-hover:cursor-pointer' : ''
+                                }`}
+                        />
+                    </div>
 
-            <div className='wrapper duration-75 group-hover:opacity-75 opacity-100'>
-                <Image
-                    src={milestone.imageUrl}
-                    alt={milestone.title}
-                    layout="responsive"
-                    width={500}
-                    height={500}
-                    className={`absolute top-0 left-0 w-full h-full object-cover transition-all ease-in-out duration-500 rounded-3xl aspect-[4/3] rotate-[-15deg] translate-x-[-30px] group-hover:rotate-[0] 
-                 group-hover:translate-x-0 group-hover:opacity-75 opacity-100 group-hover:cursor-pointer`}
-                />
-            </div>
+                    {milestone.imageUrl2 && (
+                        <div className='wrapper duration-75 group-hover:opacity-75 opacity-100'>
+                            <Image
+                                src={milestone.imageUrl2}
+                                alt={milestone.title}
+                                layout="responsive"
+                                width={500}
+                                height={500}
+                                className={`absolute top-0 left-0 w-full h-full object-cover transition-all ease-in-out duration-500 rounded-3xl aspect-[4/3] rotate-[-15deg] translate-x-[-30px] 
+                                ${milestone.imageUrl2 ?
+                                        'group-hover:rotate-[0] group-hover:translate-x-0 group-hover:opacity-75 opacity-100 group-hover:cursor-pointer' : ''
+                                    }`}
+                            />
+                        </div>
+                    )}
+                </div>
+            ) : null}
         </div>
     );
 
     return (
         <div
             key={index}
-            className={`flex items-start justify-center mb-24 ${index % 2 === 0 ? 'lg:flex-row flex-col' : 'lg:flex-row-reverse flex-col '}`}
+            className={`flex items-start justify-center ${milestone.imageUrl2 || milestone.imageUrl ? 'mb-24' : 'my-6'} ${index % 2 === 0 ? 'lg:flex-row flex-col' : 'lg:flex-row-reverse flex-col '}`}
         >
             <div className={`text-right w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:text-right justify-end' : 'lg:text-left justify-start'} flex`}>
                 <div className="w-full lg:w-2/5">
@@ -62,7 +73,7 @@ const Milestone: React.FC<MilestoneProps> = ({ milestone, index }) => {
                 </div>
             </div>
             <div className="w-full lg:w-[10%] flex lg:justify-center relative">
-                <div className="relative flex items-center justify-center ml-[calc(-10%-13px)] lg:ml-0">
+                <div className="relative flex items-center justify-center ml-[calc(-10%-13px)] lg:ml-0 mt-[-50%]  sm:mt-0">
                     <div className="w-16 h-16 bg-background rounded-full absolute z-0"></div>
                     <motion.div
                         ref={dotRef}

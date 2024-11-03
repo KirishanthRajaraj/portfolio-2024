@@ -2,9 +2,7 @@
 import { motion, MotionConfig } from 'framer-motion'
 import React, { useState } from 'react'
 
-const HamburgerMenu = () => {
-
-    const [active, setActive] = useState(false);
+const HamburgerMenu = ({ active, setActive }) => {
 
     const VARIANTS = {
         top: {
