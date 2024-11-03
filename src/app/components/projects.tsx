@@ -12,7 +12,7 @@ const PathfindingAlgorithm = dynamic(
 const projects = () => {
     return (
         <section id="projects">
-            <div className="container mx-auto px-[25px] py-20 relative">
+            <div className="container mx-auto px-[25px] pt-20 relative">
 
                 <h2 className="text-5xl font-black mb-24 -mt-12 before:content-[''] before:absolute before:border-b-[18px] before:border-b-[#233047] before:w-[14rem] before:left-[3.5rem] before:top-[4.3rem] before:-z-10">Projects</h2>
 
@@ -22,7 +22,7 @@ const projects = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-10 md:gap-16 md:flex-col flex-col-reverse lg:flex-row mb-10 justify-center">
+                <div className="flex gap-10 md:gap-16 md:flex-col flex-col-reverse lg:flex-row mb-20 md:mb-10 justify-center">
                     <div className='img__wrapper w-full lg:w-[70%] xl:w-[70%]'>
                         <Link href={"https://blitz-types.vercel.app/"} target='_blank' className=''>
                             <Image src="/static/blitztypes_showcase.png" className='rounded-3xl shadow-black shadow-lg  transition-transform duration-500 ease-in-out transform hover:scale-105' width={500} height={500} layout='responsive' alt='BlitzTypes Showcase'></Image>
