@@ -1,22 +1,9 @@
 import React from 'react'
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import Navigation from '../components/navigation';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atelierSavannaDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const Blitztypes = () => {
-    const charobj = `
-        export interface CharObject {
-            char: string;
-            isCorrect?: boolean;
-            isCurrent?: boolean;
-            isCurrentPrev?: boolean;
-            isTyped?: boolean;
-            timeStampTyped?: number;
-            color?: string;
-            opacity?: number;
-        }
-    `;
 
     return (
         <div>
@@ -90,13 +77,8 @@ const Blitztypes = () => {
                                     If you visit <a href="https://blitz-types.vercel.app/">Blitztypes</a> you will notice that the text you're typing is not into a text inputfield but rather
                                     updates the text that you're seeing yourself. Enabling you to directly view your typing progress/mistakes without straining your eyes. It's a clever
                                     trick, where you hide the text inputfield and redirect the input focus when the user clicks in a certain place.
-                                    <br />The updating of the text works because, every single character is an independent object, tracking various information:
+                                    <br />The updating of the text works because, every single character is an independent object, tracking various information such as isCorrect, color, timeStamp etc.
                                 </p>
-                                <div className="col-12 max-w-full mb-2 flex gap-3 md:gap-5 relative">
-                                    <SyntaxHighlighter language="typescript" style={atelierSavannaDark}>
-                                        {charobj}
-                                    </SyntaxHighlighter>
-                                </div>
 
                             </div>
                         </div>
