@@ -81,6 +81,13 @@ const projects = () => {
                         </Link>
                     </div>
                 </div>
+
+                <div className="flex gap-10 md:gap-16 flex-col lg:flex-row justify-center">
+                    <div className="content">
+                        <p className='text-lg mt-2'>Including <strong className='font-extrabold'>dozens</strong> of projects during my time at Chili Digital AG</p>
+                    </div>
+                </div>
+
             </div>
         </section>
     )
