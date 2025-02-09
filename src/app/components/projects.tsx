@@ -83,7 +83,7 @@ const projects = () => {
                     </div>
 
                     <div className='img__wrapper w-full lg:w-[30%] xl:w-[30%]'>
-                        <Link href={"/pathfinding"} target='_blank' className=''>
+                        <Link href={`/${locale}/pathfinding`} target='_blank' className=''>
                             <PathfindingAlgorithm className='rounded-3xl transition-transform duration-500 ease-in-out transform hover:scale-105'/>
                         </Link>
                     </div>
