@@ -388,7 +388,7 @@ const PathfindingAlgorithm = ({ className }) => {
                 <div id='p5-container' className='flex justify-center'>
                 </div>
                 <div id='no-solution' className="text-white font-bold text-lg mt-2 text-center"></div>
-                <div id='redo-algorithm' className="button-container flex justify-center mt-4"></div>
+                <div id='redo-algorithm' className="button-container flex justify-center mt-4 text-black"></div>
             </div>
         </div>
     );

@@ -3,7 +3,6 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MilestoneData } from '../interface/milestone';
-import { div } from 'framer-motion/client';
 
 interface MilestoneProps {
     milestone: MilestoneData;
@@ -22,7 +21,7 @@ const Milestone: React.FC<MilestoneProps> = ({ milestone, index }) => {
     const content = (
         <div className="milestone-content__wrapper flex justify-end">
             {milestone.imageUrl ? (
-                <div className="mt-6 md:mt-0 relative max-w-[80%] w-64 h-36 group hover:cursor-pointer" onClick={toggleSpread}>
+                <div className="mt-6 md:mt-0 relative max-w-[80%] w-64 h-36 group" onClick={toggleSpread}>
                     <div className='wrapper duration-75 group-hover:opacity-100 opacity-75'>
                         <Image
                             src={milestone.imageUrl}
@@ -32,7 +31,7 @@ const Milestone: React.FC<MilestoneProps> = ({ milestone, index }) => {
                             height={500}
                             className={`absolute top-0 left-0 w-full h-full object-cover transition-all ease-in-out duration-500 rounded-3xl aspect-[4/3] 
                             ${milestone.imageUrl2 ?
-                                    'group-hover:rotate-[-15deg] group-hover:translate-x-[-30px] group-hover:z-10 group-hover:cursor-pointer' : ''
+                                    'group-hover:rotate-[-15deg] group-hover:translate-x-[-30px] group-hover:z-10 ' : ''
                                 }`}
                         />
                     </div>
@@ -47,7 +46,7 @@ const Milestone: React.FC<MilestoneProps> = ({ milestone, index }) => {
                                 height={500}
                                 className={`absolute top-0 left-0 w-full h-full object-cover transition-all ease-in-out duration-500 rounded-3xl aspect-[4/3] rotate-[-15deg] translate-x-[-30px] 
                                 ${milestone.imageUrl2 ?
-                                        'group-hover:rotate-[0] group-hover:translate-x-0 group-hover:opacity-75 opacity-100 group-hover:cursor-pointer' : ''
+                                        'group-hover:rotate-[0] group-hover:translate-x-0 group-hover:opacity-75 opacity-100 ' : ''
                                     }`}
                             />
                         </div>

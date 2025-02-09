@@ -3,11 +3,16 @@ import React, { useEffect, useState } from 'react';
 import HamburgerMenu from './hamburgerMenu';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const locale = useLocale();
+
+  const t = useTranslations('general');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +39,10 @@ const Navigation = () => {
   };
 
   const menuItems = [
-    { value: "Timeline", link: "/#timeline" },
-    { value: "About me", link: "/#about-me" },
-    { value: "Projects", link: "/#projects" },
-    { value: "Contact me", link: "mailto:kiricommercial@gmail.com" },
+    { value: t('timeline'), link: "/#timeline" },
+    { value: t('skills'), link: "/#about-me" },
+    { value: t('projects'), link: "/#projects" },
+    { value: t('contactMe'), link: "mailto:kiricommercial@gmail.com" },
   ];
 
   return (
@@ -52,6 +57,15 @@ const Navigation = () => {
           <HamburgerMenu active={isOpen} setActive={setIsOpen} ></HamburgerMenu>
         </div>
         <ul className={`absolute z-30 top-0 right-0 pl-8 pt-32 md:pl-16 p-16 w-[90%] md:w-[50%] xl:w-[30%] h-screen bg-slate-800 shadow-lg transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className='flex gap-4 mb-6'>
+            <Button className={`font-bold text-2xl p-6 hover:bg-slate-700 ${locale === 'de' ? 'bg-slate-700' : ''}`} variant={'ghost'}>
+              <Link href={'/de'}>DE</Link>
+            </Button>
+            <div className='shrink-0 bg-white w-[2px] h-11'></div>
+            <Button className={`font-bold text-2xl py-6 hover:bg-slate-700 ${locale === 'en' ? 'bg-slate-700' : ''}`} variant={'ghost'}>
+              <Link href={'/en'}>EN</Link>
+            </Button>
+          </div>
           {menuItems.map((item, index) => (
             <li key={index} className="py-2">
               <a href={item.link} className="text-white text-3xl font-bold hover:opacity-75" onClick={toggleMenu}>{item.value}</a>

@@ -8,6 +8,7 @@ import 'aos/dist/aos.css';
 import AOS from 'aos';
 import Link from 'next/link';
 import { useSpring, animated } from '@react-spring/web';
+import { useTranslations } from 'next-intl';
 
 const Intro = () => {
     const [index, setIndex] = useState(0);
@@ -16,7 +17,8 @@ const Intro = () => {
 
     const contentRef = useRef<(HTMLDivElement | null)[]>([]);
 
-
+    const t = useTranslations();
+    const experienceT = t.raw('intro.experience');
 
     const calculateTitleHeight = () => {
         if (contentRef.current) {
@@ -81,7 +83,7 @@ const Intro = () => {
 
                     <div className="md:w-1/2">
                         <h1 className="text-4xl md:text-6xl xl:text-6xl font-bold text-white" /* data-aos="fade-left" */>
-                            <div className='text-2xl mb-4 opacity-40'>Hey, I am</div>
+                            <div className='text-2xl mb-4 opacity-40'>{t('intro.greeting')}</div>
                             <div className="overflow-hidden relative duration-150 transition-[height]"
                                 style={{ height: `${height}px` }}>
                                 <animated.div style={props} className="flex flex-col">
@@ -100,7 +102,7 @@ const Intro = () => {
                                 <span><h1></h1></span>
                                 <Typewriter
                                     options={{
-                                        strings: ["Software Engineer", "Fullstack Developer"],
+                                        strings: [t('intro.label1'), t('intro.label2'), t('intro.label3')],
                                         autoStart: true,
                                         loop: true,
                                     }}
@@ -108,20 +110,18 @@ const Intro = () => {
                             </span>
                         </h1>
 
-                        <Image src={kiri} alt='kiri' className='rounded-[100%] md:hidden'data-aos="fade-right" ></Image>
+                        <Image src={kiri} alt='kiri' className='rounded-[100%] md:hidden' data-aos="fade-right" ></Image>
 
 
                         <div /* data-aos="fade-left" */>
                             <div className="btn mt-8">
-                                <Link href={"/#projects"} className='px-6 py-3 text-xl hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-background border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
-                                    Projects
+                                <Link href={"/#projects"} className='px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[hsl(0 0% 3.9%)] font-extrabold border-background border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                    {t('general.projects')}
                                 </Link>
                             </div>
 
                             <div className="mt-8">
-                                <p className="text-base text-interface-200">
-                                    Over <span className="font-bold text-green text-">2+ years</span> work experience
-                                </p>
+                                <p className="text-base text-interface-200" dangerouslySetInnerHTML={{ __html: experienceT }} />
                             </div>
                         </div>
 

@@ -1,0 +1,101 @@
+{
+    "general": {
+        "projects": "Projects",
+        "timeline": "Timeline",
+        "skills": "Skills",
+        "contactMe": "Contact me",
+        "learnMore": "learn more",
+        "projectDozens": "Including <strong className='font-extrabold'>dozens</strong> of projects during my time at Chili Digital AG"
+    },
+    "intro": {
+        "greeting": "Hey, i am",
+        "experience": "Over <span class='font-bold text-green text-'>2+ years</span> experience",
+        "label1": "Software Engineer",
+        "label2": "Fullstack Developer",
+        "label3": "Web Developer"
+    },
+    "aboutMe": {
+        "greeting": "Hey! I am Kiri",
+        "intro": "I am currently 21 years old having gained my first practical years of experience. From fixing my first Bug at 15 to building full-fledged business-ready applications now, I still get the same satisfaction in this field.",
+        "hobbies": "In my free time, I like to learn new skills such as photography, drawing, language learning and of course programming. I regularly keep myself updated on topics related to Software Development and exchange my knowledge with other developers.",
+        "skillsHeading": "Skills",
+        "learnMore": "Very much <strong class='font-bold'>open</strong> and <strong class='font-bold'>interested</strong> to learn more"
+    },
+    "projects": [
+        {
+            "title": "Blitztypes",
+            "description": "A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard."
+        },
+        {
+            "title": "A* Algorithmus",
+            "description": "Here I am showcasing a highly efficient Algorithm to find the shortest path from Point A to Point B."
+        }
+    ],
+    "milestones": [
+        {
+            "title": "Chili Digital AG",
+            "date": "2022 - present",
+            "subtitle": "My current full-time job in Zurich District 8",
+            "imageUrl": "/static/chiliweb-showcase.png",
+            "logo": "/static/chili-logo.svg",
+            "logoAlt": "chili-logo",
+            "link": "https://chili.ch"
+        },
+        {
+            "title": "Swiss Armed Forces",
+            "date": "2024 Jan. - May",
+            "subtitle": "Recruit School, as a Richtstrahl Pioneer",
+            "imageUrl": "/static/kiri_military02.jpeg",
+            "imageUrl2": "/static/kiri_military.jpeg",
+            "logo": "/static/swiss.png",
+            "logoAlt": "swiss-armed-forces"
+        },
+        {
+            "title": "Language stay Eastbourne, England",
+            "date": "2021 Sep. - Oct.",
+            "subtitle": "Preparation for Cambridge Advanced exam at ELC Eastbourne",
+            "logo": "/static/elc.jpeg",
+            "logoAlt": "elc-logo",
+            "isRound": true
+        },
+        {
+            "title": "IMS Aarau/Baden",
+            "date": "2019 - 2023",
+            "subtitle": "My formal education in IT Application Development, Economics & Law",
+            "logo": "/static/alte-kanti.svg",
+            "logoAlt": "ims-logo"
+        }
+    ],
+    "blitztypes": {
+        "title": "BlitzTypes",
+        "category": "Development",
+        "sections": {
+            "authentication": {
+                "title": "Authentication",
+                "description": "For Blitztypes, I aimed to create a comprehensive, secure, and professional authentication mainly for learning purposes. To achieve this, I implemented JWT (JSON Web Token) authentication, which is widely regarded as the gold standard in web development. ASP.NET Identity streamlined this process, with a prebuilt JWT validator, automatic password hashing, etc.",
+                "howItWorks": "Here's how it works:",
+                "process": "The basic idea is the client (the user) logs in with correct credentials and gets back a specialized token from the server, which in my case is stored within httpOnly browser cookies. This Cookie, which contains the custom token, gets sent back to the server with every request. The server will only return user data if the token is valid. For example, try accessing the /profile page at blitz-types.vercel.app while you're not logged in. You will get redirected.",
+                "tokenInfo": "This token called an access token is valid for 15 minutes upon logging in.",
+                "refreshToken": "What happens after these 15 minutes? And why 15 minutes? For security reasons, a short-lived access token is highly recommended. After the initial 15 minutes, the token will expire, and the user is officially not logged in anymore. But upon failure of fetching the next user data, the server will check if the user has a valid so-called refreshToken in their cookies, which was also created upon logging in. If the hashed refreshToken is valid, the server will generate another 15-minute valid Access Token. Why a refreshToken? Since you don't want your users to have to log in again every 15 minutes, there's this longer-lived refreshToken, which is valid for a few days to weeks. The trade-off being, that you have to store this refreshToken very securely."
+            },
+            "frontend": {
+                "title": "Frontend",
+                "setup": "Setting up the frontend was relatively straightforward. Since I went for a simple and modern design, I mainly used the Shadcn UI library, which gave me a few singular components that I could customize like Cards, Buttons, Dropdowns, etc., alongside Tailwind CSS and other libraries like recharts.js. This allowed me to quickly set up a frontend and focus on other functionalities I didn't have much experience with.",
+                "typingFeature": "If you visit Blitztypes, you will notice that the text you're typing is not into a text input field but rather updates the text that you're seeing yourself. Enabling you to directly view your typing progress/mistakes without straining your eyes. It's a clever trick, where you hide the text input field and redirect the input focus when the user clicks in a certain place. The updating of the text works because every single character is an independent object, tracking various information such as isCorrect, color, timeStamp, etc."
+            }
+        }
+    },
+    "pathfinding": {
+        "title": "A* Pathfinding Algorithm",
+        "author": "Me",
+        "date": "02 Sep, 2024",
+        "category": "Experiments",
+        "section_title": "Pathfinding",
+        "description": "Have you ever wondered how one can find the shortest possible path from point A to point B?\n\nThe easiest way to find out would be to explore and memorize every possible path that exists and pick the shortest one out of that list. That is called the Dijkstra’s Algorithm.\nBut that is a very time-consuming and slow process for both humans and computers. And that’s why the A* Algorithm exists. Here’s a comparison:",
+        "comparison_title": "How A* works:",
+        "map_explanation": "Here’s the map I used above. Let’s make it smaller for better understanding:",
+        "algorithm_explanation": "The core idea behind this algorithm is that for every neighboring spot of your current position you set a score for the distance it is away from the starting point (G cost, top left number) and the distance from the target point (H cost, top right number).",
+        "formula_explanation": "You take the sum of that evaluation, which we can define as F cost (middle large number), compare F cost score of every neighbor and pick the neighboring spot with the lowest score i.e. the spot that is the best choice to explore next. Rinse and repeat until you find the target spot.",
+        "wikipedia_reference": "There is a Wikipedia page about the A* algorithm which has an implementation of it in pseudocode, which I took as reference when building my version of it in p5.js:"
+    }
+}

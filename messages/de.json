@@ -1,0 +1,100 @@
+{
+    "general": {
+        "projects": "Projekte",
+        "timeline": "Werdegang",
+        "skills": "Kompetenzen",
+        "contactMe": "Kontaktieren",
+        "learnMore": "Mehr erfahren",
+        "projectDozens": "Inklusive <strong className='font-extrabold'>dutzende</strong> Projekte in meiner Zeit bei Chili Digital AG"
+    },
+    "intro": {
+        "greeting": "Hallo, ich bin",
+        "experience": "Über <span class='font-bold text-green text-'>2+ Jahre</span> Erfahrung",
+        "label1": "Software Entwickler",
+        "label2": "Fullstack Entwickler",
+        "label3": "Webentwickler"
+    },
+    "aboutMe": {
+        "greeting": "Hallo! Ich bin Kiri",
+        "intro": "Ich bin derzeit 21 Jahre alt und habe meine ersten praktischen Jahre Erfahrung gesammelt. Vom Beheben meines ersten Bugs mit 15 bis hin zum Erstellen von voll funktionsfähigen Geschäftsanwendungen, erhalte ich immer noch die gleiche Zufriedenheit in dieser Branche.",
+        "hobbies": "In meiner Freizeit lerne ich gerne neue Skills wie Fotografie, Sprachen lernen, Zeichnen und natürlich Programmieren. Ich halte mich regelmäßig auf dem neuesten Stand in Software-Entwicklungsthemen und tausche mein Wissen mit anderen Entwicklern aus.",
+        "learnMore": "Äusserst <strong class='font-bold'>offen</strong> und <strong class='font-bold'>interessiert</strong> mehr dazuzulernen"
+    },
+    "projects": [
+        {
+            "title": "Blitztypes",
+            "description": "Eine Full-Stack-Applikation, die Ihnen hilft, Ihre Tippfähigkeiten zu verbessern, mit einer spannenden Bestenliste."
+        },
+        {
+            "title": "A* Algorithmus",
+            "description": "Hier präsentiere ich einen äusserst effizienten Algorithmus, um den kürzesten Weg von Punkt A nach Punkt B zu finden."
+        }
+    ],
+    "milestones": [
+        {
+            "title": "Chili Digital AG",
+            "date": "2022 - aktuell",
+            "subtitle": "Mein derzeitiger Vollzeitjob in Zürich Kreis 8",
+            "imageUrl": "/static/chiliweb-showcase.png",
+            "logo": "/static/chili-logo.svg",
+            "logoAlt": "chili-logo",
+            "link": "https://chili.ch"
+        },
+        {
+            "title": "Schweizer Armee",
+            "date": "2024 Jan. - Mai",
+            "subtitle": "Rekrutenschule, als Richtstrahl-Pionier",
+            "imageUrl": "/static/kiri_military02.jpeg",
+            "imageUrl2": "/static/kiri_military.jpeg",
+            "logo": "/static/swiss.png",
+            "logoAlt": "schweizerarmee"
+        },
+        {
+            "title": "Sprachaufenthalt Eastbourne, England",
+            "date": "2021 Sep. - Okt.",
+            "subtitle": "Vorbereitung auf die Cambridge Advanced-Prüfung bei ELC Eastbourne",
+            "logo": "/static/elc.jpeg",
+            "logoAlt": "elc-logo",
+            "isRound": true
+        },
+        {
+            "title": "IMS Aarau/Baden",
+            "date": "2019 - 2023",
+            "subtitle": "Meine Ausbildung in IT-Applikationsentwicklung, Kaufmännische Berufsmaturität",
+            "logo": "/static/alte-kanti.svg",
+            "logoAlt": "ims-logo"
+        }
+    ],
+    "blitztypes": {
+        "title": "BlitzTypes",
+        "category": "Entwicklung",
+        "sections": {
+            "authentication": {
+                "title": "Authentifizierung",
+                "description": "Für Blitztypes wollte ich eine umfassende, sichere und professionelle Authentifizierung erstellen, hauptsächlich zu Lernzwecken. Dafür habe ich JWT (JSON Web Token) Authentifizierung implementiert, die als Goldstandard in der Webentwicklung gilt. ASP.NET Identity vereinfachte diesen Prozess mit einem vorgefertigten JWT-Validator, automatischem Passwort-Hashing usw.",
+                "howItWorks": "So funktioniert es:",
+                "process": "Die Grundidee ist, dass der Client (der Benutzer) sich mit den richtigen Anmeldedaten anmeldet und ein spezialisiertes Token vom Server zurückbekommt, das in meinem Fall innerhalb von httpOnly-Browser-Cookies gespeichert wird. Dieses Cookie, das das benutzerdefinierte Token enthält, wird mit jeder Anfrage an den Server gesendet. Der Server gibt nur Benutzerdaten zurück, wenn der Token gültig ist. Versuchen Sie zum Beispiel, die /profile-Seite auf blitz-types.vercel.app aufzurufen, während Sie nicht eingeloggt sind. Sie werden weitergeleitet.",
+                "tokenInfo": "Dieser Token, welcher als Access-Token bezeichnet wird, ist nach dem Einloggen 15 Minuten lang gültig.",
+                "refreshToken": "Was passiert nach diesen 15 Minuten? Und warum 15 Minuten? Aus Sicherheitsgründen wird ein kurzlebiger Access-Token dringend empfohlen. Nach den ersten 15 Minuten läuft der Token ab, und der Benutzer ist offiziell nicht mehr eingeloggt. Aber wenn das Abrufen der nächsten Benutzerdaten fehlschlägt, prüft der Server, ob der Benutzer einen gültigen sogenannten refreshToken in seinen Cookies hat, das ebenfalls beim Einloggen erstellt wurde. Wenn der gehashte refreshToken gültig ist, erstellt der Server einen weiteren 15 Minuten gültigen Access-Token. Warum ein refreshToken? Da Sie nicht möchten, dass sich Ihre Benutzer alle 15 Minuten erneut einloggen müssen, gibt es diesen länger gültigen refreshToken, das für einige Tage bis Wochen gültig ist. Der Kompromiss dabei ist, dass dieser refreshToken sehr sicher gespeichert werden muss."
+            },
+            "frontend": {
+                "title": "Frontend",
+                "setup": "Das Einrichten des Frontends war relativ unkompliziert. Da ich mich für ein einfaches und modernes Design entschieden habe, habe ich hauptsächlich die Shadcn-UI-Bibliothek verwendet, die mir einige einzelne Komponenten wie Karten, Schaltflächen, Dropdowns usw. anbot, die ich anpassen konnte, zusammen mit Tailwind CSS und anderen Bibliotheken wie recharts.js. Dies ermöglichte es mir, schnell ein Frontend einzurichten und meine Zeit auf andere Funktionen zu richten, mit denen ich weniger Erfahrung hatte.",
+                "typingFeature": "Wenn Sie die Blitztypes Website besuchen, werden Sie feststellen, dass der Text, den Sie eingeben, nicht in ein Texteingabefeld eingegeben wird, sondern der Text, den Sie selbst sehen, aktualisiert wird. Dies ermöglicht es Ihnen, Ihren Tippfortschritt/Fehler direkt zu sehen, ohne Ihre Augen zu belasten. Es ist ein cleverer Trick, bei dem ich das Texteingabefeld ausblende und den Eingabefokus umleite, wenn der Benutzer an einer bestimmten Stelle klickt. Die Aktualisierung des Textes funktioniert, weil jeder einzelne Buchstabe ein unabhängiges Objekt ist, das verschiedene Informationen wie isCorrect, Farbe, timeStamp usw. verfolgt."
+            }
+        }
+    },
+    "pathfinding": {
+        "title": "A* Pfadfindungsalgorithmus",
+        "author": "Ich",
+        "date": "02. Sep, 2024",
+        "category": "Experimente",
+        "section_title": "Pfadfindung",
+        "description": "Hast du dich jemals gefragt, wie man den kürzesten möglichen Weg von Punkt A nach Punkt B finden kann?\n\nDie einfachste Methode wäre, alle möglichen Wege zu erkunden und sich den kürzesten auszusuchen. Das ist der Dijkstra-Algorithmus.\nAber das ist ein sehr zeitaufwendiger und langsamer Prozess – sowohl für Menschen als auch für Computer. Deshalb gibt es den A*-Algorithmus. Hier ist ein Vergleich:",
+        "comparison_title": "Wie A* funktioniert:",
+        "map_explanation": "Hier ist die Karte, die ich oben verwendet habe. Lassen wir sie kleiner werden, um es besser zu verstehen:",
+        "algorithm_explanation": "Die Kernidee dieses Algorithmus ist, dass man für jeden benachbarten Punkt deiner aktuellen Position einen Wert setzt: die Distanz zum Startpunkt (G-Kosten, oben links) und die Distanz zum Zielpunkt (H-Kosten, oben rechts).",
+        "formula_explanation": "Man summierst diese Werte, was wir als F-Kosten definieren (mittlere große Zahl), vergleichst die F-Kosten aller Nachbarn und wählst den mit dem niedrigsten Wert – also den besten nächsten Schritt. Dies wiederholt man, bis man das Ziel erreicht.",
+        "wikipedia_reference": "Es gibt eine Wikipedia-Seite über den A*-Algorithmus mit einer Implementierung in Pseudocode, die ich als Referenz für meine Version in p5.js verwendet habe:"
+    }
+}
