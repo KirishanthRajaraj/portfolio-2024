@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -35,6 +36,21 @@ export default async function RootLayout({ children, params: { locale } }: {
 
   return (
     <html lang="{locale}">
+      <head>
+        {/* Google Analytics Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9LJPZ70GP4"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XB9GWM2LC7');
+          `}
+        </Script>
+      </head>
       <body className="antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}
