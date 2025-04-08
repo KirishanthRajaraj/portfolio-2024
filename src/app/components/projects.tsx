@@ -2,8 +2,8 @@ import React from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import { SquareArrowOutUpRight } from 'lucide-react';
-import {useLocale, useTranslations} from 'next-intl';
+import { SquareArrowOutUpRight, Github } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 const PathfindingAlgorithm = dynamic(
     () => import('./pathfindingAlgorithm'),
     { ssr: false }
@@ -16,7 +16,7 @@ const projects = () => {
     const tg = useTranslations('general');
     const pd = t.raw('general.projectDozens');
 
-    
+
     return (
         <section id="projects">
             <div className="container mx-auto px-[25px] pt-20 relative">
@@ -28,7 +28,7 @@ const projects = () => {
 
                     </div>
                 </div>
- 
+
                 <div className="flex gap-10 md:gap-16 md:flex-col flex-col-reverse lg:flex-row mb-20 md:mb-10 justify-center">
                     <div className='img__wrapper w-full lg:w-[70%] xl:w-[70%]'>
                         <Link href={"https://blitz-types.vercel.app/"} target='_blank' className=''>
@@ -47,12 +47,18 @@ const projects = () => {
 
                             <div className="flex items-center flex-wrap gap-4">
                                 <div className="btn mt-8">
+                                    <Link href={"https://github.com/KirishanthRajaraj/BlitzTypes"} target='_blank' className='flex items-center px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                        <Github />
+                                    </Link>
+                                </div>
+
+                                <div className="btn mt-8">
                                     <Link href={"https://blitz-types.vercel.app/"} target='_blank' className='flex items-center px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                         <SquareArrowOutUpRight />
                                     </Link>
                                 </div>
 
-                                <div className="btn mt-8">
+                                <div className="btn sm:mt-8 mt-4">
                                     <Link href={`/${locale}/BlitzTypes`} className='px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                         {tg('learnMore')}
                                     </Link>
@@ -74,6 +80,12 @@ const projects = () => {
 
                             <div className="flex items-center flex-wrap gap-4">
                                 <div className="btn mt-8">
+                                    <Link href={"https://github.com/KirishanthRajaraj/PathfindingAlgorithm/"} target='_blank' className='flex items-center px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                        <Github />
+                                    </Link>
+                                </div>
+
+                                <div className="btn mt-8">
                                     <Link href={`/${locale}/pathfinding`} className='px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                         {tg('learnMore')}
                                     </Link>
@@ -84,7 +96,7 @@ const projects = () => {
 
                     <div className='img__wrapper w-full lg:w-[30%] xl:w-[30%]'>
                         <Link href={`/${locale}/pathfinding`} target='_blank' className=''>
-                            <PathfindingAlgorithm className='rounded-3xl transition-transform duration-500 ease-in-out transform hover:scale-105'/>
+                            <PathfindingAlgorithm className='rounded-3xl transition-transform duration-500 ease-in-out transform hover:scale-105' />
                         </Link>
                     </div>
                 </div>
