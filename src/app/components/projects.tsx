@@ -45,7 +45,7 @@ const projects = () => {
                                 {projectsT[0].description}
                             </div>
 
-                            <div className="flex items-center flex-wrap gap-4">
+                            <div className="flex items-center flex-wrap gap-x-4">
                                 <div className="btn mt-8">
                                     <Link href={"https://github.com/KirishanthRajaraj/BlitzTypes"} target='_blank' className='flex items-center px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                         <Github />
@@ -58,7 +58,7 @@ const projects = () => {
                                     </Link>
                                 </div>
 
-                                <div className="btn sm:mt-8 mt-4">
+                                <div className="btn mt-8">
                                     <Link href={`/${locale}/BlitzTypes`} className='px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
                                         {tg('learnMore')}
                                     </Link>
