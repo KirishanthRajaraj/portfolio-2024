@@ -62,7 +62,7 @@ const Intro = () => {
     ];
 
     const props = useSpring({
-        transform: `translateY(${index * -prevHeight - 4}px)`,
+        transform: `translateY(${index * -prevHeight - 3}px)`,
         config: { tension: 300, friction: 30 },
     });
 
@@ -102,7 +102,7 @@ const Intro = () => {
                                 <span><h1></h1></span>
                                 <Typewriter
                                     options={{
-                                        strings: [t('intro.label1'), t('intro.label2'), t('intro.label3')],
+                                        strings: [t('intro.label1'), t('intro.label2'), t('intro.label3'), t('intro.label4')],
                                         autoStart: true,
                                         loop: true,
                                     }}

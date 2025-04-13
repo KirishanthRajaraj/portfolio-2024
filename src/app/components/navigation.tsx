@@ -39,9 +39,9 @@ const Navigation = () => {
   };
 
   const menuItems = [
-    { value: t('timeline'), link: "/#timeline" },
-    { value: t('skills'), link: "/#about-me" },
-    { value: t('projects'), link: "/#projects" },
+    { value: t('timeline'), link: "#timeline" },
+    { value: t('skills'), link: "#about-me" },
+    { value: t('projects'), link: "#projects" },
     { value: t('contactMe'), link: "mailto:kiricommercial@gmail.com" },
   ];
 
@@ -68,7 +68,7 @@ const Navigation = () => {
           </div>
           {menuItems.map((item, index) => (
             <li key={index} className="py-2">
-              <a href={item.link} className="text-white text-3xl font-bold hover:opacity-75" onClick={toggleMenu}>{item.value}</a>
+              <a href={item.link} className="text-white text-3xl font-bold hover:opacity-75" onClick={toggleMenu} {...(item.newTab && { target: "_blank", rel: "noopener noreferrer" })}>{item.value}</a>
             </li>
           ))}
         </ul>

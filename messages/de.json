@@ -4,6 +4,7 @@
         "timeline": "Werdegang",
         "skills": "Kompetenzen",
         "contactMe": "Kontaktieren",
+        "photography": "Fotografie",
         "learnMore": "Mehr erfahren",
         "projectDozens": "Inklusive <strong className='font-extrabold'>dutzende</strong> Projekte in meiner Zeit bei Chili Digital AG"
     },
@@ -12,7 +13,8 @@
         "experience": "Über <span class='font-bold text-green text-'>2+ Jahre</span> Erfahrung",
         "label1": "Software Entwickler",
         "label2": "Fullstack Entwickler",
-        "label3": "Webentwickler"
+        "label3": "Webentwickler",
+        "label4": "Fotograph"
     },
     "aboutMe": {
         "greeting": "Hallo! Ich bin Kiri",
