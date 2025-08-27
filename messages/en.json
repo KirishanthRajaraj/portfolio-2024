@@ -25,14 +25,19 @@
     },
     "projects": [
         {
+            "title": "Habits Tracker",
+            "description": "Not your usual habits tracker. A slightly gamified approach to building habits and doing your tasks, with features to promote intrinsic motivation. Backend with Java Spring Boot and Frontend with React, TypeScript, MUI."
+        },
+        {
             "title": "Blitztypes",
-            "description": "A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard."
+            "description": "A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard. Backend with ASP.NET Core and Frontend with React, TypeScript, Tailwind CSS."
         },
         {
             "title": "A* Algorithmus",
             "description": "Here I am showcasing a highly efficient Algorithm to find the shortest path from Point A to Point B."
         }
     ],
+    "inProgress": "In Progress...",
     "milestones": [
         {
             "title": "Chili Digital AG",

@@ -14,6 +14,7 @@ const projects = () => {
     const t = useTranslations();
     const projectsT = t.raw('projects')
     const tg = useTranslations('general');
+    const ip = t.raw('inProgress');
     const pd = t.raw('general.projectDozens');
 
 
@@ -29,6 +30,36 @@ const projects = () => {
                     </div>
                 </div>
 
+                <div className="flex gap-10 md:gap-16 flex-col lg:flex-row mb-20 md:mb-16 justify-center">
+
+
+                    <div className="content w-full xl:w-[40%] lg:w-[40%] flex items-center">
+                        <div className="content-wrapper">
+                            <h3 className='text-3xl font-bold mb-6 text-green'>
+                                {projectsT[0].title}
+                            </h3>
+                            <div className="lead md:text-xl font-semibold ">
+                                {projectsT[0].description}
+                            </div>
+
+                            <div className="flex items-center flex-wrap gap-x-4">
+                                <div className="btn mt-8">
+                                    <Link href={"https://github.com/KirishanthRajaraj/HobbiesTrackerAPI"} target='_blank' className='flex items-center px-6 py-3 text-xl text-black hover:bg-green shadow-green duration-200 bg-green text-[var(--background)] font-extrabold border-transparent border-2 hover:bg-transparent hover:border-green hover:border-2 hover:text-green'>
+                                        <Github />
+                                    </Link>
+                                </div>
+
+                            </div>
+
+                            <div className='mt-6 text-3xl font-semibold text-gray-400'>{ip}</div>
+                        </div>
+                    </div>
+
+                    <div className='img__wrapper w-[80%] lg:w-[60%] xl:w-[60%]'>
+                        <Image src="/static/HabitsTracker_v1.0.png" className='rounded-3xl shadow-black shadow-lg  transition-transform duration-500 ease-in-out transform hover:scale-105' width={500} height={500} layout='responsive' alt='BlitzTypes Showcase'></Image>
+                    </div>
+                </div>
+
                 <div className="flex gap-10 md:gap-16 md:flex-col flex-col-reverse lg:flex-row mb-20 md:mb-10 justify-center">
                     <div className='img__wrapper w-full lg:w-[70%] xl:w-[70%]'>
                         <Link href={"https://blitz-types.vercel.app/"} target='_blank' className=''>
@@ -39,10 +70,10 @@ const projects = () => {
                     <div className="content w-full xl:w-[40%] lg:w-[40%] flex items-center">
                         <div className="content-wrapper">
                             <h3 className='text-3xl font-bold mb-6 text-green'>
-                                {projectsT[0].title}
+                                {projectsT[1].title}
                             </h3>
                             <div className="lead md:text-xl font-semibold ">
-                                {projectsT[0].description}
+                                {projectsT[1].description}
                             </div>
 
                             <div className="flex items-center flex-wrap gap-x-4">
@@ -72,10 +103,10 @@ const projects = () => {
                     <div className="content w-full xl:w-[40%] lg:w-[40%] flex items-center">
                         <div className="content-wrapper">
                             <h3 className='text-3xl font-bold mb-6 text-green'>
-                                {projectsT[1].title}
+                                {projectsT[2].title}
                             </h3>
                             <div className="lead md:text-xl font-semibold ">
-                                {projectsT[1].description}
+                                {projectsT[2].description}
                             </div>
 
                             <div className="flex items-center flex-wrap gap-4">

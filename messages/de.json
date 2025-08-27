@@ -24,14 +24,19 @@
     },
     "projects": [
         {
+            "title": "Habits Tracker",
+            "description": "Kein gewöhnlicher Habit Tracker. Ein leicht spielerischer Ansatz zum Aufbau von Gewohnheiten und zur Erledigung von alltäglichen Aufgaben, mit Funktionen zur Förderung der intrinsischen Motivation. Backend mit Java Spring Boot und Frontend mit React, TypeScript, MUI."
+        },
+        {
             "title": "Blitztypes",
-            "description": "Eine Full-Stack-Applikation, die Ihnen hilft, Ihre Tippfähigkeiten zu verbessern, mit einer spannenden Bestenliste."
+            "description": "Eine Full-Stack-Applikation, die Ihnen hilft, Ihre Tippfähigkeiten zu verbessern, mit einer spannenden Bestenliste. Backend mit ASP.NET Core und Frontend mit React, TypeScript, Tailwind CSS."
         },
         {
             "title": "A* Algorithmus",
             "description": "Hier präsentiere ich einen äusserst effizienten Algorithmus, um den kürzesten Weg von Punkt A nach Punkt B zu finden."
         }
     ],
+    "inProgress": "In Arbeit...",
     "milestones": [
         {
             "title": "Chili Digital AG",
