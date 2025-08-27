@@ -11,12 +11,16 @@ const AboutMe = () => {
 
     const skills = [
         { name: "C# ASP.NET", percentage: 75 },
+        { name: "Java Spring Boot", percentage: 60 },
+        { name: "SQL Databases", percentage: 80 },
+        { name: "Rest API", percentage: 82 },
+        { name: "Azure DevOps", percentage: 87 },
+        { name: "CI/CD Pipelines", percentage: 60 },
         { name: "HTML / CSS / JS", percentage: 90 },
         { name: "React", percentage: 75 },
         { name: "Typescript", percentage: 80 },
-        { name: "Umbraco CMS", percentage: 80 },
-        { name: "Hubspot CMS", percentage: 95 },
-        { name: "Git", percentage: 80 },
+        { name: "Hubspot CMS / HubSpot CMS", percentage: 85 },
+        { name: "GIT", percentage: 80 },
         { name: "jQuery", percentage: 75 },
     ];
 
