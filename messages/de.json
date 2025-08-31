@@ -19,7 +19,7 @@
     "aboutMe": {
         "greeting": "Hallo! Ich bin Kiri",
         "intro": "Ich bin derzeit 21 Jahre alt und habe meine ersten praktischen Jahre Erfahrung gesammelt. Vom Beheben meines ersten Bugs mit 15 bis hin zum Erstellen von voll funktionsfähigen Geschäftsanwendungen, erhalte ich immer noch die gleiche Zufriedenheit in dieser Branche.",
-        "hobbies": "In meiner Freizeit lerne ich gerne neue Skills wie Fotografie, Sprachen lernen, Zeichnen und natürlich Programmieren. Ich halte mich regelmäßig auf dem neuesten Stand in Software-Entwicklungsthemen und tausche mein Wissen mit anderen Entwicklern aus.",
+        "hobbies": "In meiner Freizeit lerne ich gerne neue Skills wie Fotografie, Sprachen lernen, Zeichnen und natürlich Programmieren. Ich halte mich regelmässig auf dem neuesten Stand in Software-Entwicklungsthemen und tausche mein Wissen mit anderen Entwicklern aus.",
         "learnMore": "Äusserst <strong class='font-bold'>offen</strong> und <strong class='font-bold'>interessiert</strong> mehr dazuzulernen"
     },
     "projects": [
