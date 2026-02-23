@@ -8,4 +8,5 @@ export interface MilestoneData {
     logoAlt: string;
     link?: string;
     isRound?: boolean;
+    size?: "regular" | "large";
 }

@@ -40,9 +40,27 @@
     "inProgress": "In Progress...",
     "milestones": [
         {
+            "title": "FHNW",
+            "date": "2026 - present",
+            "subtitle": "BSc. Computer Science student (part time)",
+            "logo": "/static/fhnw-logo.jpg",
+            "logoAlt": "fhnw-logo",
+            "link": "https://fhnw.ch"
+        },
+        {
+            "title": "Verlingue AG",
+            "date": "2025 Nov. - present",
+            "subtitle": "Junior IT System Administrator (part time)",
+            "imageUrl": "/static/verlingue-kriens.webp",
+            "logo": "/static/logo-verlingue.png",
+            "logoAlt": "verlinge-logo",
+            "link": "https://verlingue.ch",
+            "size": "large"
+        },
+        {
             "title": "Chili Digital AG",
-            "date": "2022 - present",
-            "subtitle": "My current full-time job in Zurich District 8",
+            "date": "2022 Aug. - 2025 May",
+            "subtitle": "Junior Full Stack Software Developer",
             "imageUrl": "/static/chiliweb-showcase.png",
             "logo": "/static/chili-logo.svg",
             "logoAlt": "chili-logo",

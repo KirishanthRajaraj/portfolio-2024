@@ -64,7 +64,7 @@ const Milestone: React.FC<MilestoneProps> = ({ milestone, index }) => {
             <div className={`text-right w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:text-right justify-end' : 'lg:text-left justify-start'} flex`}>
                 <div className="w-full lg:w-2/5">
                     <div className={`title__section relative flex gap-4 justify-end lg:justify-between items-center mb-2 hyphens-auto ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
-                        <Image src={milestone.logo} width={40} height={40} alt={milestone.logoAlt} className={`${milestone.isRound ? 'rounded-full' : ''}`} />
+                        <Image src={milestone.logo} width={milestone.size === "large" ? 80 : 40} height={40} alt={milestone.logoAlt} className={`${milestone.isRound ? 'rounded-full' : ''}`} />
                         <h3 className="text-2xl font-semibold">{milestone.title}</h3>
                     </div>
                     <div className="text-sm opacity-40 font-semibold mb-2">{milestone.date}</div>
