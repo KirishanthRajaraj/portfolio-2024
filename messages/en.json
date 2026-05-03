@@ -30,7 +30,7 @@
         },
         {
             "title": "Blitztypes",
-            "description": "A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard. Backend with ASP.NET Core and Frontend with React, TypeScript, Tailwind CSS."
+            "description": "A Full Stack Typing Application to help you practice your typing, with a competitive leaderboard. Backend with ASP.NET Core. Frontend with React, TypeScript, Tailwind CSS, Shadcn UI"
         },
         {
             "title": "A* Algorithmus",

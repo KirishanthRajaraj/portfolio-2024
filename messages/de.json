@@ -29,7 +29,7 @@
         },
         {
             "title": "Blitztypes",
-            "description": "Eine Full-Stack-Applikation, die Ihnen hilft, Ihre Tippfähigkeiten zu verbessern, mit einer spannenden Bestenliste. Backend mit ASP.NET Core und Frontend mit React, TypeScript, Tailwind CSS."
+            "description": "Eine Full-Stack-Applikation, die Ihnen hilft, Ihre Tippfähigkeiten zu verbessern, mit einer spannenden Bestenliste. Backend mit ASP.NET Core. Frontend mit React, TypeScript, Tailwind CSS,  Shadcn UI."
         },
         {
             "title": "A* Algorithmus",
@@ -41,7 +41,7 @@
         {
             "title": "FHNW",
             "date": "2026 - aktuell",
-            "subtitle": "BSc. Informatik student (Teilzeit)",
+            "subtitle": "BSc. Informatik Student (Teilzeit)",
             "logo": "/static/fhnw-logo.jpg",
             "logoAlt": "fhnw-logo",
             "link": "https://fhnw.ch"
